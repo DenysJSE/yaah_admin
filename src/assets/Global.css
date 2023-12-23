@@ -33,5 +33,71 @@ html {
 
 /* Color variables */
 :root {
+  /* Main Colors */
+  --app-background-color: #2D2E35;
+  --app-text-color: #FFFFF8;
+  --app-description-color: #C9C9C9;
 
+  /* SideBar, Header Colors */
+  --sidebar-header-background-color: #1A1D1F;
+  --sidebar-header-border: #393A41;
+  --sidebar-menu-link-hover: #313436;
+
+  /* Button Colors */
+  --button-link-color: #30638E;
+  --button-color-hover: #2A567A;
+  --button-color-active: #1F405B;
+  --button-color-text: #FFFFFF;
+
+  /* Card Colors */
+  --card-background-color: #37383F;
+  --card-border-color: #4F5056;
+  --progress-bar-background: #1A1D1F;
+  --passed-bar: #30638E;
+  --lessons-card-title-lesson: #9DD6FF;
+  --lesson-card-done: #35CE8D;
+
+  /* Achievements Colors */
+  --achievements-complete-color: #AAFF68;
+  --achievements-incomplete-color: #FFC5EB;
+
+  /* Edit Profile Colors */
+  --edit-profile-input-color: #4F5056;
+  --edit-profile-cancel-button-color: #4F5056;
+  --edit-profile-input-label-color: #C9C9C9;
+
+  --header-pop-up-link-hover: #64656e;
+
+  --exam-header-footer-background: #37383F;
+  --exam-progress-bar-background: #4F5056;
+  --exam-progress-bar-passed-background: #30638EFF;
+  --exam-card-option-active: #35CE8D;
+
+  --button-disable: #4F5056;
+  --button-disable-text-color: #2D2E35;
+}
+
+/* App styling */
+.App {
+  display: flex;
+  background-color: var(--app-background-color);
+  color: var(--app-text-color);
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 300px;
+  width: 100%;
+}
+
+.app-page {
+  display: flex;
+  padding: 128px 0;
+  min-height: 100vh;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--app-text-color);
 }

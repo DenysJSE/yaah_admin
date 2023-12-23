@@ -1,0 +1,139 @@
+/* SideBar */
+.sidebar {
+  width: 250px;
+  padding: 0 16px;
+  background-color: var(--sidebar-header-background-color);
+  color: var(--app-text-color);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 2px solid var(--sidebar-header-border);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 16px;
+}
+
+.sidebar-logo-image {
+  width: 48px;
+  height: auto;
+}
+
+.sidebar-logo-title {
+  margin-left: 4px;
+  font-size: 40px;
+}
+
+.sidebar-line {
+  margin: auto;
+  height: 3px;
+  border: none;
+  background-color: var(--sidebar-header-border);
+  border-radius: 10px;
+}
+
+/* Menu */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-sub-menu {
+  margin-top: 24px;
+}
+
+.sidebar-link {
+  margin-top: 24px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link:hover {
+  background-color: var(--sidebar-menu-link-hover);
+  border-radius: 15px;
+}
+
+.sidebar-link.active {
+  color: #B9C7FC;
+  text-decoration: none;
+  background-color: var(--sidebar-menu-link-hover);
+  border-radius: 15px;
+}
+
+.sidebar-menu-image {
+  width: 24px;
+  height: auto;
+}
+
+.sidebar-link-title {
+  margin-left: 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    width: 100%;
+    height: 80px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+  }
+
+  .sidebar-logo,
+  .sidebar-line {
+    display: none;
+  }
+
+  .sidebar-sub-menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .sidebar-sub-menu {
+    margin-top: 0;
+  }
+
+  .sidebar-link {
+    margin: 0;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sidebar-link-title {
+    margin: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar-menu-image {
+    width: 20px;
+  }
+
+  .sidebar-link-title {
+    font-size: 12px;
+  }
+
+  .sidebar-sub-menu-list {
+    gap: 16px;
+  }
+}
