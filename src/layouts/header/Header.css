@@ -4,13 +4,13 @@
   position: fixed;
   top: 0;
   right: 0;
-  left: 250px;
+  left: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--sidebar-header-background-color);
   border-bottom: 2px solid var(--sidebar-header-border);
-  z-index: 999;
+  z-index: 998;
 }
 
 .header-content-center {

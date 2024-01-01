@@ -12,6 +12,11 @@
   z-index: 999;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar.sidebar-hidden {
+  width: 90px;
 }
 
 /* Logo */
@@ -79,6 +84,29 @@
   margin-left: 24px;
   font-size: 16px;
   font-weight: 500;
+}
+
+.sidebar-hide-button  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.sidebar-hide-button-hide-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.sidebar-hide-button-icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+.sidebar-hide-button-hide-block-text {
+  font-size: 20px;
 }
 
 @media (max-width: 850px) {
