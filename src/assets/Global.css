@@ -91,10 +91,18 @@ html {
   width: 100%;
 }
 
+.app-content-sidebar-hidden {
+  padding-left: 150px;
+}
+
 .app-page {
   display: flex;
   padding: 128px 0;
   min-height: 100vh;
+}
+
+.app-page-sidebar-hidden {
+  padding: 50px 0;
 }
 
 .link {

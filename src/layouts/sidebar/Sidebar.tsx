@@ -4,7 +4,9 @@ import LessonActive from '../../assets/images/lessons_active.png'
 import Exam from '../../assets/images/exam.png'
 import ExamActive from '../../assets/images/exam_active.png'
 import Subject from '../../assets/images/subject.png'
+import SubjectActive from '../../assets/images/subjects_active.png'
 import User from '../../assets/images/user.png'
+import UserActive from '../../assets/images/user_active.png'
 import ShowSidebar from '../../assets/images/show_menu.png'
 import HideSidebar from '../../assets/images/hide_menu.png'
 import { NavLink } from 'react-router-dom';
@@ -60,7 +62,7 @@ function Sidebar() {
                   {({ isActive }) => (
                     <div className={`sidebar-link ${isActive ? 'active' : ''}`}>
                       <img
-                        src={Subject}
+                        src={ isActive ? SubjectActive : Subject }
                         alt='exams'
                         className='sidebar-menu-image'
                       />
@@ -72,7 +74,7 @@ function Sidebar() {
                   {({ isActive }) => (
                     <div className={`sidebar-link ${isActive ? 'active' : ''}`}>
                       <img
-                        src={User}
+                        src={ isActive ? UserActive : User }
                         alt='exams'
                         className='sidebar-menu-image'
                       />

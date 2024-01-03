@@ -6,13 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": "./",
-    "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@data/*": ["src/data/*"],
-      "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"]
-    },
+    "paths": {},
 
     /* Bundler mode */
     "moduleResolution": "bundler",
