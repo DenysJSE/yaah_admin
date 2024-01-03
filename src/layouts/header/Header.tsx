@@ -2,10 +2,12 @@ import UserLogo from '../../assets/images/userlogo.jpg'
 import ProfilePopUp from '../../layouts/profile-popup-menu/ProfilePopUp.tsx';
 import { useState } from 'react';
 import './Header.css';
+import { useSidebarContext } from '../../context/HideSidebarContext.tsx';
 
 
 function Header() {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
+  const { isSidebarHidden } = useSidebarContext();
 
   const handleProfileHover = () => {
     setIsProfileVisible(true);
@@ -16,7 +18,7 @@ function Header() {
   };
 
   return (
-    <header className='header'>
+    <header className={`header ${isSidebarHidden && 'header-hide'}`}>
       <div className='header-content-center'>
         <div className='header-user-info'>
           <div

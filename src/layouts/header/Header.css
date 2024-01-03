@@ -13,6 +13,10 @@
   z-index: 998;
 }
 
+.header.header-hide {
+  display: none;
+}
+
 .header-content-center {
   display: flex;
   justify-content: right;

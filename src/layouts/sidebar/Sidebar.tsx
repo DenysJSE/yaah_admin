@@ -9,17 +9,23 @@ import ShowSidebar from '../../assets/images/show_menu.png'
 import HideSidebar from '../../assets/images/hide_menu.png'
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useSidebarContext } from '../../context/HideSidebarContext.tsx';
+
 
 function Sidebar() {
-  const [isHidden, setIsHidden] = useState(false);
+  const { isSidebarHidden, toggleSidebar } = useSidebarContext();
+
+  useEffect(() => {
+    localStorage.setItem('isHidden', JSON.stringify(isSidebarHidden));
+  }, [isSidebarHidden]);
 
   return (
-    <div className={`sidebar ${isHidden && 'sidebar-hidden' } `}>
+    <div className={`sidebar ${isSidebarHidden && 'sidebar-hidden' } `}>
       <div className='sidebar-top'>
         <div className='sidebar-logo'>
           <img src={Logo} alt='Logo' className='sidebar-logo-image' />
-          {!isHidden && <h1 className='sidebar-logo-title'>aah</h1>}
+          {!isSidebarHidden && <h1 className='sidebar-logo-title'>aah</h1>}
         </div>
         <hr className='sidebar-line' />
         <div className='sidebar-menu'>
@@ -34,7 +40,7 @@ function Sidebar() {
                         alt='lessons'
                         className='sidebar-menu-image'
                       />
-                      {!isHidden && <h3 className='sidebar-link-title'>Lessons</h3>}
+                      {!isSidebarHidden && <h3 className='sidebar-link-title'>Lessons</h3>}
                     </div>
                   )}
                 </NavLink>
@@ -46,7 +52,7 @@ function Sidebar() {
                         alt='exams'
                         className='sidebar-menu-image'
                       />
-                      {!isHidden && <h3 className='sidebar-link-title'>Exams</h3>}
+                      {!isSidebarHidden && <h3 className='sidebar-link-title'>Exams</h3>}
                     </div>
                   )}
                 </NavLink>
@@ -58,7 +64,7 @@ function Sidebar() {
                         alt='exams'
                         className='sidebar-menu-image'
                       />
-                      {!isHidden && <h3 className='sidebar-link-title'>Subjects</h3>}
+                      {!isSidebarHidden && <h3 className='sidebar-link-title'>Subjects</h3>}
                     </div>
                   )}
                 </NavLink>
@@ -70,7 +76,7 @@ function Sidebar() {
                         alt='exams'
                         className='sidebar-menu-image'
                       />
-                      {!isHidden && <h3 className='sidebar-link-title'>Users</h3>}
+                      {!isSidebarHidden && <h3 className='sidebar-link-title'>Users</h3>}
                     </div>
                   )}
                 </NavLink>
@@ -80,9 +86,9 @@ function Sidebar() {
         </div>
       </div>
       <div className='sidebar-hide-button'>
-        {isHidden ?
-          <img src={ShowSidebar} alt='show-menu' onClick={() => setIsHidden(false)} className='sidebar-hide-button-icon' /> :
-          <div className='sidebar-hide-button-hide-block' onClick={() => setIsHidden(true)}>
+        {isSidebarHidden ?
+          <img src={ShowSidebar} alt='show-menu' onClick={() => toggleSidebar()} className='sidebar-hide-button-icon' /> :
+          <div className='sidebar-hide-button-hide-block' onClick={() => toggleSidebar()}>
             <img src={HideSidebar} alt='hide-menu' className='sidebar-hide-button-icon' />
             <p className='sidebar-hide-button-hide-block-text'>Hide Sidebar</p>
           </div>
