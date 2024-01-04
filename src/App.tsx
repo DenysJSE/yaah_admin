@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from './layouts/sidebar/Sidebar.tsx';
 import Header from './layouts/header/Header.tsx';
 import { useSidebarContext } from './context/HideSidebarContext.tsx';
-import Auth from './pages/Auth/Auth.tsx';
-import Lessons from './pages/Lessons/Lessons.tsx';
-import Exams from './pages/Exams/Exams.tsx';
-import Subjects from './pages/Subjects/Subjects.tsx';
-import Users from './pages/Users/Users.tsx';
-import Profile from './pages/Profile/Profile.tsx';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage.tsx';
+import Auth from './pages/auth/Auth.tsx';
+import Lessons from './pages/lessons/Lessons.tsx';
+import Exams from './pages/exams/Exams.tsx';
+import Subjects from './pages/subjects/Subjects.tsx';
+import Users from './pages/users/Users.tsx';
+import Profile from './pages/profile/Profile.tsx';
+import NotFoundPage from './pages/not-found-page/NotFoundPage.tsx';
 
 function App() {
   const { isSidebarHidden } = useSidebarContext();
