@@ -25,6 +25,7 @@
   justify-content: center;
   align-items: end;
   padding: 16px;
+  cursor: default;
 }
 
 .sidebar-logo-image {
