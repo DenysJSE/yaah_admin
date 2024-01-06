@@ -1,0 +1,16 @@
+.users-page {
+  padding: 0 50px;
+  width: 100%;
+}
+
+.users-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 850px) {
+  .users-page {
+    padding: 0 20px;
+  }
+}

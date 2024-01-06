@@ -22,6 +22,18 @@ function Sidebar() {
     localStorage.setItem('isHidden', JSON.stringify(isSidebarHidden));
   }, [isSidebarHidden]);
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth <= 850) {
+        toggleSidebar(false);
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [toggleSidebar]);
+
   return (
     <div className={`sidebar ${isSidebarHidden && 'sidebar-hidden' } `}>
       <div className='sidebar-top'>
@@ -89,8 +101,8 @@ function Sidebar() {
       </div>
       <div className='sidebar-hide-button'>
         {isSidebarHidden ?
-          <img src={ShowSidebar} alt='show-menu' onClick={() => toggleSidebar()} className='sidebar-hide-button-icon' /> :
-          <div className='sidebar-hide-button-hide-block' onClick={() => toggleSidebar()}>
+          <img src={ShowSidebar} alt='show-menu' onClick={() => toggleSidebar(false)} className='sidebar-hide-button-icon' /> :
+          <div className='sidebar-hide-button-hide-block' onClick={() => toggleSidebar(true)}>
             <img src={HideSidebar} alt='hide-menu' className='sidebar-hide-button-icon' />
             <p className='sidebar-hide-button-hide-block-text'>Hide Sidebar</p>
           </div>

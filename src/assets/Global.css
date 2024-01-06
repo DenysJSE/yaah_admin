@@ -42,6 +42,7 @@ html {
   --sidebar-header-background-color: #1A1D1F;
   --sidebar-header-border: #393A41;
   --sidebar-menu-link-hover: #313436;
+  --sidebar-menu-link-active: #B9C7FC;
 
   /* Button Colors */
   --button-link-color: #30638E;
@@ -75,6 +76,10 @@ html {
 
   --button-disable: #4F5056;
   --button-disable-text-color: #2D2E35;
+
+  --button-user-list-text: #fffffff;
+  --button-user-list-edit: #4F759B ;
+  --button-user-list-delete: #B6465F ;
 }
 
 /* App styling */
@@ -87,7 +92,7 @@ html {
 .app-content {
   display: flex;
   flex-direction: column;
-  padding-left: 300px;
+  padding-left: 250px;
   width: 100%;
 }
 
@@ -108,4 +113,10 @@ html {
 .link {
   text-decoration: none;
   color: var(--app-text-color);
+}
+
+@media (max-width: 850px) {
+  .app-content {
+    padding: 0;
+  }
 }

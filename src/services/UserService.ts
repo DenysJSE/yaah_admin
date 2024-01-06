@@ -12,6 +12,10 @@ interface IUpdateNickname {
 }
 
 export default class UserService {
+  static async getAllUsers() {
+    return api.get('users')
+  }
+
   static async getUser() {
     return api.get('users/get_user')
   }

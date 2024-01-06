@@ -2,7 +2,7 @@ import React, { createContext, ReactNode, useContext, useEffect, useState } from
 
 interface IHideSidebarContext {
   isSidebarHidden: boolean,
-  toggleSidebar: () => void
+  toggleSidebar: (value: boolean) => void
 }
 
 const HideSidebarContext = createContext<IHideSidebarContext | undefined>({
@@ -24,8 +24,8 @@ export const HideSidebarProvider: React.FC<{children: ReactNode}> = ({ children 
     return storedIsHidden ? JSON.parse(storedIsHidden) : false;
   });
 
-  const toggleSidebar = () => {
-    setIsSidebarHidden((prev: boolean) => !prev);
+  const toggleSidebar = (value: boolean) => {
+    setIsSidebarHidden(value);
   };
 
   useEffect(() => {
