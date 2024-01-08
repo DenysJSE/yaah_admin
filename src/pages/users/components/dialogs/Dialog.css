@@ -1,0 +1,48 @@
+.dialog-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.dialog {
+  background-color: var(--card-background-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 16px;
+  padding: 32px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.dialog-text {
+  font-size: 18px;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 24px;
+}
+
+.dialog-button {
+  padding: 8px 32px;
+  border: none;
+  border-radius: 15px;
+  color: var(--button-color-text);
+  cursor: pointer;
+}
+
+.dialog-button.delete {
+  background-color: var(--button-user-list-delete);
+}
+
+.dialog-button.cancel {
+  background-color: var(--button-user-list-edit);
+}

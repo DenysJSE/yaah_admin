@@ -27,4 +27,12 @@ export default class UserService {
   static async updateUserNickname({userID, newNickname}: IUpdateNickname) {
     return api.put('users/update_nickname', {userID, newNickname})
   }
+
+  static async deleteUser(id: number) {
+    return api.delete(`users/${id}`)
+  }
+
+  static async deleteUserRole(userID: number, roleID: number) {
+    return api.delete(`users/${userID}/roles/${roleID}`)
+  }
 }

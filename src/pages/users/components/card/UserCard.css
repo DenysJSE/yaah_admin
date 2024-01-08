@@ -5,6 +5,7 @@
   padding: 24px 32px;
   min-width: 300px;
   flex-grow: 1;
+  position: relative;
 }
 
 .user-card-content {
@@ -42,6 +43,7 @@
   border: none;
   border-radius: 15px;
   color: var(--button-user-list-text);
+  cursor: pointer;
 }
 
 .user-card-button.edit {

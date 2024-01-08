@@ -1,5 +1,5 @@
 .profile-page-edit-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -39,10 +39,48 @@
   gap: 24px;
 }
 
+.edit-profile-inputs-duo {
+  display: flex;
+  gap: 24px;
+}
+
 .edit-profile-input {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.edit-profile-inputs-roles {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.edit-profile-inputs-roles-wrapper {
+  max-width: 824px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.edit-profile-inputs-roles-user-role {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-basis: calc(50% - 24px);
+  box-sizing: border-box;
+}
+
+.edit-profile-inputs-roles-delete-button {
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+}
+
+.edit-profile-inputs-roles-delete-icon {
+  width: 16px;
 }
 
 .edit-profile-input-field {

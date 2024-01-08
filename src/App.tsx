@@ -12,6 +12,7 @@ import NotFoundPage from './pages/not-found-page/NotFoundPage.tsx';
 import { createContext } from 'react';
 import userStore from './store/user/userStore.tsx';
 import AuthPage from './pages/auth/AuthPage.tsx';
+import PrivateRoute from './components/PrivateRoute.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -30,12 +31,14 @@ function App() {
           <Header />
           <div className={`app-page ${isSidebarHidden ? 'app-page-sidebar-hidden' : ''}`}>
             <Routes>
+              <Route element={<PrivateRoute />}>
+                <Route path={'/lessons'} element={<Lessons />} />
+                <Route path={'/exams'} element={<Exams />} />
+                <Route path={'/subjects'} element={<Subjects />} />
+                <Route path={'/users'} element={<Users />} />
+                <Route path={'/profile'} element={<Profile />} />
+              </Route>
               <Route path={'/'} element={<AuthPage />} />
-              <Route path={'/lessons'} element={<Lessons />} />
-              <Route path={'/exams'} element={<Exams />} />
-              <Route path={'/subjects'} element={<Subjects />} />
-              <Route path={'/users'} element={<Users />} />
-              <Route path={'/profile'} element={<Profile />} />
               <Route path={'/*'} element={<NotFoundPage />} />
             </Routes>
           </div>

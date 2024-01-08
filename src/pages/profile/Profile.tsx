@@ -13,7 +13,7 @@ export interface IUser {
     id: number;
     value: string;
     description: string;
-  };
+  }[];
 }
 
 function Profile() {
