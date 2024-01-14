@@ -36,6 +36,7 @@ function UserCard({user, id, nickname, email, roleValue }: IUserData) {
     try {
       const scrollPosition = window.scrollY;
       await UserService.deleteUser(id)
+      alert('The user was deleted successfully')
       window.location.reload()
       sessionStorage.setItem('scrollPosition', scrollPosition.toString());
     } catch (e) {

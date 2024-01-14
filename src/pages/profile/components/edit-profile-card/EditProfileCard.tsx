@@ -100,6 +100,7 @@ function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard)
         const user: IUser = JSON.parse(userString);
         const userID = user.id
         await UserService.deleteUserRole(userID, roleID)
+        window.location.reload()
       }
     } catch (e) {
       console.log(e);
