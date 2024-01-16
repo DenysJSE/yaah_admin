@@ -13,6 +13,8 @@ import { createContext } from 'react';
 import userStore from './store/user/userStore.tsx';
 import AuthPage from './pages/auth/AuthPage.tsx';
 import PrivateRoute from './components/PrivateRoute.tsx';
+import { useUser } from './components/UserUtils.ts';
+import EditProfileCard from './pages/profile/components/edit-profile-card/EditProfileCard.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -20,6 +22,7 @@ export const Context = createContext({
 
 function App() {
   const { isSidebarHidden } = useSidebarContext();
+  const { user } = useUser();
 
   return (
     <BrowserRouter>
@@ -37,6 +40,7 @@ function App() {
                 <Route path={'/subjects'} element={<Subjects />} />
                 <Route path={'/users'} element={<Users />} />
                 <Route path={'/profile'} element={<Profile />} />
+                <Route path={'/edit-profile'} element={<EditProfileCard user={user} />} />
               </Route>
               <Route path={'/'} element={<AuthPage />} />
               <Route path={'/*'} element={<NotFoundPage />} />

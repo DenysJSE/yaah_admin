@@ -39,6 +39,7 @@
 }
 
 .user-card-button {
+  width: 100%;
   padding: 12px 32px;
   border: none;
   border-radius: 15px;

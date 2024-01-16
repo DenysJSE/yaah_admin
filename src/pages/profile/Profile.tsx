@@ -1,8 +1,8 @@
 import UserIcon from '../../assets/images/userlogo.jpg';
 import Button from '../../components/button.tsx';
-import EditProfileCard from './components/edit-profile-card/EditProfileCard.tsx';
-import { useState } from 'react';
 import './Profile.css';
+import { useUser } from '../../components/UserUtils.ts';
+import { Link } from 'react-router-dom';
 
 export interface IUser {
   id: number;
@@ -17,35 +17,24 @@ export interface IUser {
 }
 
 function Profile() {
-  const [isShownEditProfile, setIsShownEditProfile] = useState(false);
+  const { user } = useUser();
 
-  const userData = localStorage.getItem('user');
-  const user: IUser = userData ? JSON.parse(userData) : null;
-
-  const handleShowEditProfile = () => {
-    setIsShownEditProfile(true);
-  };
-
-  const handleCloseEditProfileCard = () => {
-    setIsShownEditProfile(false);
-  };
+  const formattedDate = new Date(user?.created_at).toLocaleDateString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
 
   return (
     <div className='profile-page'>
       <div className='profile-page-card'>
         <img src={UserIcon} alt='userIcon' className='profile-page-user-icon' />
-        <h1 className='profile-page-user-nickname'>{user.nickname}</h1>
-        <p className='profile-page-member-date'>Member since 2023</p>
-        <div onClick={handleShowEditProfile}>
+        <h1 className='profile-page-user-nickname'>{user?.nickname}</h1>
+        <p className='profile-page-member-date'>Member since {formattedDate}</p>
+        <Link to='/edit-profile'>
           <Button text={'Edit Profile'} />
-        </div>
+        </Link>
       </div>
-      {isShownEditProfile && (
-        <EditProfileCard
-          user={user}
-          handleCloseEditProfileCard={handleCloseEditProfileCard}
-        />
-      )}
     </div>
   );
 }

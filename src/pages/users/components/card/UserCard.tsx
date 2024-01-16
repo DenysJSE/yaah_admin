@@ -1,23 +1,11 @@
 import './UserCard.css';
 import UserService from '../../../../services/UserService.ts';
 import { useEffect, useState } from 'react';
-import EditProfileCard from '../../../profile/components/edit-profile-card/EditProfileCard.tsx';
 import DeleteUserDialog from '../dialogs/DeleteUserDialog.tsx';
+import { Link } from 'react-router-dom';
 
-interface IUser {
-  id: number
-  nickname: string
-  email: string
-  coins: number
-  roles: {
-    id: number;
-    value: string;
-    description: string;
-  }[]
-}
 
 interface IUserData {
-  user: IUser
   id: number;
   nickname: string;
   email: string;
@@ -28,16 +16,15 @@ interface IUserData {
   }[];
 }
 
-function UserCard({user, id, nickname, email, roleValue }: IUserData) {
-  const [isShowEditDialog, setIsShowEditDialog] = useState(false);
+function UserCard({ id, nickname, email, roleValue }: IUserData) {
   const [isShowDeleteUserDialog, setIsShowDeleteUserDialog] = useState(false);
 
   async function handleDeleteUser() {
     try {
       const scrollPosition = window.scrollY;
-      await UserService.deleteUser(id)
-      alert('The user was deleted successfully')
-      window.location.reload()
+      await UserService.deleteUser(id);
+      alert('The user was deleted successfully');
+      window.location.reload();
       sessionStorage.setItem('scrollPosition', scrollPosition.toString());
     } catch (e) {
       console.log(e);
@@ -52,28 +39,20 @@ function UserCard({user, id, nickname, email, roleValue }: IUserData) {
     }
   }, []);
 
-  const handleShowEditDialog = () => {
-    setIsShowEditDialog(true)
-  }
-
-  const handleHideEditDialog = () => {
-    setIsShowEditDialog(false)
-  }
-
   const handleShowDeleteUserDialog = () => {
-    setIsShowDeleteUserDialog(true)
-  }
+    setIsShowDeleteUserDialog(true);
+  };
 
   const handleCanselDelete = () => {
-    setIsShowDeleteUserDialog(false)
-  }
+    setIsShowDeleteUserDialog(false);
+  };
 
   return (
     <div className='user-card'>
       <div className='user-card-content'>
         <div className='user-card-info'>
-            <p className='user-card-id'>ID: {id}</p>
-            <p className='user-card-nickname'>Nickname: {nickname}</p>
+          <p className='user-card-id'>ID: {id}</p>
+          <p className='user-card-nickname'>Nickname: {nickname}</p>
           <p className='user-card-email'>Email: {email}</p>
           <div className='user-card-role-value'>
             Roles:
@@ -85,10 +64,9 @@ function UserCard({user, id, nickname, email, roleValue }: IUserData) {
           </div>
         </div>
         <div className='user-card-buttons'>
-          <button className='user-card-button edit' onClick={handleShowEditDialog}>Edit</button>
-          {isShowEditDialog &&
-            <EditProfileCard user={user} handleCloseEditProfileCard={handleHideEditDialog} />
-          }
+          <Link to={'/edit-profile'} className='link'>
+            <button className='user-card-button edit'>Edit</button>
+          </Link>
           <button className='user-card-button delete' onClick={handleShowDeleteUserDialog}>Delete</button>
         </div>
         {isShowDeleteUserDialog &&

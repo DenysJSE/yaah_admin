@@ -1,19 +1,29 @@
-import { Context } from '../../../../App.tsx';
 import CloseButton from '../../../../assets/images/close.png';
-import HidePassword from '../../../../assets/images/hide.png';
-import ShowPassword from '../../../../assets/images/show.png';
 import DeleteIcon from '../../../../assets/images/bin.png';
 import Button from '../../../../components/button.tsx';
-import { IUser } from '../../Profile.tsx';
 import UserService from '../../../../services/UserService.ts';
-import { useContext, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './EditProfileCard.css';
 import ProfileEditDeleteRoleDialog from '../dialogs/ProfileEditDeleteRoleDialog.tsx';
+import EditProfileInput from './EditProfileInput.tsx';
+
+export interface IUser {
+  id: number;
+  nickname: string;
+  email: string;
+  password?: string
+  coins: number;
+  created_at: string
+  roles: {
+    id: number;
+    value: string;
+    description: string;
+  }[];
+}
 
 interface IEditProfileCard {
   user: IUser;
-  handleCloseEditProfileCard: () => void;
 }
 
 export interface IRole {
@@ -22,8 +32,7 @@ export interface IRole {
   description: string
 }
 
-function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard) {
-  const { store } = useContext(Context);
+function EditProfileCard({ user }: IEditProfileCard) {
   const [newNickname, setNewNickname] = useState(user.nickname);
   const [userPassword, setUserPassword] = useState('');
   const [newUserPassword, setNewUserPassword] = useState('');
@@ -32,6 +41,9 @@ function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard)
   const [clickedRoleValue, setClickedRoleValue] = useState<string | null>(null);
   const [roleID, setRoleID] = useState<number>(0)
 
+  useEffect(() => {
+    setNewNickname(user.nickname);
+  }, [user.nickname]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,7 +74,6 @@ function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard)
       const userID = user.id;
       await UserService.updateUserNickname({ userID, newNickname });
       toast.success('The nickname was updated');
-      await store.getUser();
     } catch (e) {
       handleFormSubmissionError(e);
     }
@@ -91,6 +102,14 @@ function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard)
     setIsShowDialog(false)
     setClickedRoleValue(null);
   }
+
+  const handleCloseEditProfileCard = () => {
+    history.back();
+  };
+
+  const handleShowPassword = (value: boolean) => {
+    setIsShowPassword(value);
+  };
 
   const handleDeleteRole = async (roleID: number)=> {
     try {
@@ -122,62 +141,46 @@ function EditProfileCard({ user, handleCloseEditProfileCard }: IEditProfileCard)
           </div>
           <div className='edit-profile-inputs'>
             <div className='edit-profile-inputs-duo'>
-              <div className='edit-profile-input'>
-                <label htmlFor='nickname' className='edit-profile-input-label'>Nickname</label>
-                <input
-                  type='text'
-                  id='nickname'
-                  value={newNickname}
-                  onChange={e => setNewNickname(e.target.value)}
-                  className='edit-profile-input-field'
-                />
-              </div>
-              <div className='edit-profile-input'>
-                <label htmlFor='email' className='edit-profile-input-label'>Email</label>
-                <input
-                  type='email'
-                  id='email'
-                  value={user.email}
-                  readOnly={true}
-                  className='edit-profile-input-field'
-                />
-              </div>
+              <EditProfileInput
+                labelHtmlFor='nickname'
+                labelTitle='Nickname'
+                inputType='text'
+                inputID='nickname'
+                inputValue={newNickname}
+                inputOnChange={e => setNewNickname(e.target.value)}
+              />
+              <EditProfileInput
+                labelHtmlFor='email'
+                labelTitle='Email'
+                inputType='email'
+                inputID='email'
+                inputValue={user.email}
+                inputReadOnly={true}
+              />
             </div>
             <div className='edit-profile-inputs-duo'>
-              <div className='edit-profile-input password'>
-                <label htmlFor='password' className='edit-profile-input-label'>Password</label>
-                <input
-                  type={`${isShowPassword ? 'text' : 'password'}`}
-                  id='password'
-                  className='edit-profile-input-field password'
-                  onChange={e => setUserPassword(e.target.value)}
-                />
-                {isShowPassword ? (
-                  <img
-                    src={HidePassword}
-                    alt='hide-password'
-                    className='edit-profile-show-password-img'
-                    onClick={() => setIsShowPassword(false)}
-                  />
-                ) : (
-                  <img
-                    src={ShowPassword}
-                    alt='show-password'
-                    className='edit-profile-show-password-img'
-                    onClick={() => setIsShowPassword(true)}
-                  />
-                )}
-              </div>
-              <div className='edit-profile-input'>
-                <label htmlFor='new_password' className='edit-profile-input-label'>New Password</label>
-                <input
-                  type={`${isShowPassword ? 'text' : 'password'}`}
-                  id='new_password'
-                  className='edit-profile-input-field'
-                  onChange={e => setNewUserPassword(e.target.value)}
-                />
-              </div>
+              <EditProfileInput
+                labelHtmlFor='password'
+                labelTitle='Password'
+                inputType={`${isShowPassword ? 'text' : 'password'}`}
+                inputID='password'
+                inputOnChange={e => setUserPassword(e.target.value)}
+                inputBlockAdditionalClassName='password'
+                inputAdditionalClassName='password'
+                isShowPassword={isShowPassword}
+                handleShowPassword={handleShowPassword}
+              />
+              <EditProfileInput
+                labelHtmlFor='new_password'
+                labelTitle='New Password'
+                inputType={`${isShowPassword ? 'text' : 'password'}`}
+                inputID='new_password'
+                inputOnChange={e => setNewUserPassword(e.target.value)}
+                inputAdditionalClassName='password'
+              />
             </div>
+
+
             <div className='edit-profile-inputs-roles'>
               <h2 className='profile-page-edit-form-header-title'>Roles:</h2>
               <div className='edit-profile-inputs-roles-wrapper'>

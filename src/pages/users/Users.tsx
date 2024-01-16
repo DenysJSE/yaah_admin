@@ -37,7 +37,6 @@ function Users() {
         {users?.map(user => (
           <UserCard
             key={user.id}
-            user={user}
             id={user.id}
             nickname={user.nickname}
             email={user.email}

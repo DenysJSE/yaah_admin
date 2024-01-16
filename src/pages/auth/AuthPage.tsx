@@ -1,12 +1,17 @@
 import LoginForm from './LoginForm.tsx';
 import RegistrationForm from './RegistrationForm.tsx';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Context } from '../../App.tsx';
 import './Auth.css';
+import { useDispatch } from 'react-redux';
+import { loginUser, registerUser } from '../../store/user/UserActions.ts';
+import { setIsAuthenticated, setUser } from '../../store/user/UserSlice.ts';
 
 function AuthPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState(' ');
   const [nickname, setNickname] = useState(' ');
   const [password, setPassword] = useState(' ');
@@ -14,8 +19,6 @@ function AuthPage() {
   const [passwordError, setPasswordError] = useState('');
   const [nicknameError, setNicknameError] = useState('');
   const [authMode, setAuthMode] = useState('login');
-  const navigate = useNavigate();
-  const { store } = useContext(Context);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -69,22 +72,33 @@ function AuthPage() {
       return
     }
 
-    if (authMode === 'login') {
-      await store.Login({ email, password });
-      if (store.isAuthenticated) {
-        toast.success("You login to your account successfully")
-        navigate('/lessons');
-        await store.getUser()
+    try {
+      if (authMode === 'login') {
+        const result = await loginUser({ email, password });
+        if (result.success) {
+          dispatch(setIsAuthenticated(true));
+          dispatch(setUser(result.user));
+          toast.success('You logged in successfully');
+          navigate('/lessons');
+        } else {
+          toast.error("You have some error");
+        }
       }
-    }
 
-    if (authMode === 'registration') {
-      await store.registration({ email, password, nickname });
-      if (store.isAuthenticated) {
-        toast.success("You registered to your account successfully")
-        navigate('/lessons');
-        await store.getUser()
+      if (authMode === 'registration') {
+        const result = await registerUser({ email, password, nickname });
+        if (result.success) {
+          dispatch(setIsAuthenticated(true));
+          dispatch(setUser(result.user));
+          toast.success('You registered successfully');
+          navigate('/lessons');
+        } else {
+          toast.error("You have some error");
+        }
       }
+    } catch (error) {
+      console.error('An error occurred', error);
+      toast.error('An error occurred');
     }
   };
 
