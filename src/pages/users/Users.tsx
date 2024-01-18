@@ -36,11 +36,7 @@ function Users() {
       <div className='users-page-list'>
         {users?.map(user => (
           <UserCard
-            key={user.id}
-            id={user.id}
-            nickname={user.nickname}
-            email={user.email}
-            roleValue={user.roles}
+            user={user}
           />
         ))}
       </div>

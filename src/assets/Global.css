@@ -66,6 +66,8 @@ html {
   --edit-profile-input-color: #4F5056;
   --edit-profile-cancel-button-color: #4F5056;
   --edit-profile-input-label-color: #C9C9C9;
+  --edit-profile-hr-line: #797979;
+  --edit-profile-add-role-button: #1D8A99;
 
   --header-pop-up-link-hover: #64656e;
 
@@ -78,8 +80,13 @@ html {
   --button-disable-text-color: #2D2E35;
 
   --button-user-list-text: #fffffff;
-  --button-user-list-edit: #4F759B ;
-  --button-user-list-delete: #B6465F ;
+  --button-user-list-edit: #4F759B;
+  --button-user-list-delete: #B6465F;
+
+  --button-modal-cancel: #627fff;
+  --button-modal-logout: #4F5056;
+  --modal-text-color: #ffffff8f;
+  --modal-hr-color: #ffffff8f;
 }
 
 /* App styling */

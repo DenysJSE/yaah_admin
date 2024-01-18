@@ -4,25 +4,28 @@ import { useEffect, useState } from 'react';
 import DeleteUserDialog from '../dialogs/DeleteUserDialog.tsx';
 import { Link } from 'react-router-dom';
 
-
-interface IUserData {
+interface IUser {
   id: number;
   nickname: string;
   email: string;
-  roleValue: {
+  roles: {
     id: number
     value: string
     description: string
   }[];
 }
 
-function UserCard({ id, nickname, email, roleValue }: IUserData) {
+interface IUserData {
+  user: IUser
+}
+
+function UserCard({ user }: IUserData) {
   const [isShowDeleteUserDialog, setIsShowDeleteUserDialog] = useState(false);
 
   async function handleDeleteUser() {
     try {
       const scrollPosition = window.scrollY;
-      await UserService.deleteUser(id);
+      await UserService.deleteUser(user.id);
       alert('The user was deleted successfully');
       window.location.reload();
       sessionStorage.setItem('scrollPosition', scrollPosition.toString());
@@ -51,12 +54,12 @@ function UserCard({ id, nickname, email, roleValue }: IUserData) {
     <div className='user-card'>
       <div className='user-card-content'>
         <div className='user-card-info'>
-          <p className='user-card-id'>ID: {id}</p>
-          <p className='user-card-nickname'>Nickname: {nickname}</p>
-          <p className='user-card-email'>Email: {email}</p>
+          <p className='user-card-id'>ID: {user.id}</p>
+          <p className='user-card-nickname'>Nickname: {user.nickname}</p>
+          <p className='user-card-email'>Email: {user.email}</p>
           <div className='user-card-role-value'>
             Roles:
-            {roleValue.map(role => (
+            {user.roles.map(role => (
               <p key={role.id}>
                 {role.value}
               </p>
@@ -64,14 +67,14 @@ function UserCard({ id, nickname, email, roleValue }: IUserData) {
           </div>
         </div>
         <div className='user-card-buttons'>
-          <Link to={'/edit-profile'} className='link'>
+          <Link to={`/edit-profile/${user.id}`} className='link'>
             <button className='user-card-button edit'>Edit</button>
           </Link>
           <button className='user-card-button delete' onClick={handleShowDeleteUserDialog}>Delete</button>
         </div>
         {isShowDeleteUserDialog &&
           <DeleteUserDialog
-            nickname={nickname}
+            nickname={user.nickname}
             handleDeleteUser={handleDeleteUser}
             handleCanselDelete={handleCanselDelete}
           />

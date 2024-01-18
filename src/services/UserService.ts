@@ -20,6 +20,10 @@ export default class UserService {
     return api.get('users/get_user')
   }
 
+  static async getUserByID(id: number) {
+    return api.get(`users/get_user/${id}`)
+  }
+
   static async updatePassword({userID, userPassword, newUserPassword}: IUpdatePassword) {
     return api.put('users/update_password', {userID, userPassword, newUserPassword})
   }

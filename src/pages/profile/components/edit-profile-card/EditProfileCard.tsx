@@ -5,8 +5,10 @@ import UserService from '../../../../services/UserService.ts';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './EditProfileCard.css';
-import ProfileEditDeleteRoleDialog from '../dialogs/ProfileEditDeleteRoleDialog.tsx';
 import EditProfileInput from './EditProfileInput.tsx';
+import ModalWindow from '../../../../components/ModalWindow.tsx';
+import { useParams } from 'react-router-dom';
+import NotFoundPage from '../../../not-found-page/NotFoundPage.tsx';
 
 export interface IUser {
   id: number;
@@ -22,8 +24,18 @@ export interface IUser {
   }[];
 }
 
-interface IEditProfileCard {
-  user: IUser;
+class InitialUser {
+  id = 0
+  nickname = ''
+  email = ''
+  password = ''
+  coins = 0
+  created_at = 0
+  roles = [{
+    id: 0,
+    value: '',
+    description: ''
+  }]
 }
 
 export interface IRole {
@@ -32,7 +44,10 @@ export interface IRole {
   description: string
 }
 
-function EditProfileCard({ user }: IEditProfileCard) {
+function EditProfileCard() {
+  const { id } = useParams();
+
+  const [user, setUser] = useState<IUser | InitialUser>(() => new InitialUser);
   const [newNickname, setNewNickname] = useState(user.nickname);
   const [userPassword, setUserPassword] = useState('');
   const [newUserPassword, setNewUserPassword] = useState('');
@@ -44,6 +59,26 @@ function EditProfileCard({ user }: IEditProfileCard) {
   useEffect(() => {
     setNewNickname(user.nickname);
   }, [user.nickname]);
+
+  useEffect(() => {
+    const fetchUserById = async () => {
+      try {
+        if (id) {
+          const response = await UserService.getUserByID(parseInt(id));
+          setUser(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching lesson:', error);
+      }
+    };
+    if (id) {
+      fetchUserById()
+    }
+  }, [id]);
+
+  if (!id) {
+    return <NotFoundPage />;
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -179,8 +214,7 @@ function EditProfileCard({ user }: IEditProfileCard) {
                 inputAdditionalClassName='password'
               />
             </div>
-
-
+            <hr className='edit-profile-role-hr'/>
             <div className='edit-profile-inputs-roles'>
               <h2 className='profile-page-edit-form-header-title'>Roles:</h2>
               <div className='edit-profile-inputs-roles-wrapper'>
@@ -203,15 +237,25 @@ function EditProfileCard({ user }: IEditProfileCard) {
                   </div>
                 ))}
               </div>
+              <button className='edit-profile-role-add-role-button'>Add role</button>
               {isShowDialog &&
-                <ProfileEditDeleteRoleDialog
-                  roleValue={clickedRoleValue}
-                  handleCanselDelete={handleHideDialog}
-                  handleDeleteRole={() => handleDeleteRole(roleID)}
+                <ModalWindow
+                  handleCansel={handleHideDialog}
+                  handleDoAction={() => handleDeleteRole(roleID)}
+                  cancelText={'Cancel'}
+                  doActionText={'Delete role'}
+                  modalWindowTitle={`You are trying to delete ${clickedRoleValue} role`}
+                  modalWindowText={'Are you sure about it? If it will be done, there are no turning back!'}
                 />
+                // <ProfileEditDeleteRoleDialog
+                //   roleValue={clickedRoleValue}
+                //   handleCanselDelete={handleHideDialog}
+                //   handleDeleteRole={() => handleDeleteRole(roleID)}
+                // />
               }
             </div>
           </div>
+          <hr className='edit-profile-role-hr'/>
           <div className='edit-profile-button-save'>
             <Button text={'Save'} type={'submit'} />
           </div>

@@ -31,7 +31,7 @@ function Profile() {
         <img src={UserIcon} alt='userIcon' className='profile-page-user-icon' />
         <h1 className='profile-page-user-nickname'>{user?.nickname}</h1>
         <p className='profile-page-member-date'>Member since {formattedDate}</p>
-        <Link to='/edit-profile'>
+        <Link to={`/edit-profile/${user.id}`}>
           <Button text={'Edit Profile'} />
         </Link>
       </div>

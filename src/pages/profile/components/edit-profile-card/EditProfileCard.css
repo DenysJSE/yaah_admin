@@ -51,7 +51,6 @@
 }
 
 .edit-profile-inputs-roles {
-  margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -81,6 +80,20 @@
 
 .edit-profile-inputs-roles-delete-icon {
   width: 16px;
+}
+
+.edit-profile-role-hr {
+  border: 1px solid var(--edit-profile-hr-line);
+}
+
+.edit-profile-role-add-role-button {
+  border: none;
+  padding: 12px 48px;
+  border-radius: 15px;
+  background-color: var(--edit-profile-add-role-button);
+  color: var(--button-color-text);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .edit-profile-input-field {
