@@ -68,6 +68,7 @@ html {
   --edit-profile-input-label-color: #C9C9C9;
   --edit-profile-hr-line: #797979;
   --edit-profile-add-role-button: #1D8A99;
+  --edit-profile-add-role-button-hover: #349aa8;
 
   --header-pop-up-link-hover: #64656e;
 
@@ -84,7 +85,9 @@ html {
   --button-user-list-delete: #B6465F;
 
   --button-modal-cancel: #627fff;
+  --button-modal-cancel-hover: #7b91ff;
   --button-modal-logout: #4F5056;
+  --button-modal-logout-hover: #6d6d73;
   --modal-text-color: #ffffff8f;
   --modal-hr-color: #ffffff8f;
 }

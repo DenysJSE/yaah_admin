@@ -94,6 +94,11 @@
   color: var(--button-color-text);
   font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-profile-role-add-role-button:hover {
+  background-color: var(--edit-profile-add-role-button-hover);
 }
 
 .edit-profile-input-field {

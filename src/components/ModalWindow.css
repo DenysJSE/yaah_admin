@@ -61,6 +61,14 @@
   background-color: var(--button-modal-logout);
 }
 
+.modal-button.do-action:hover {
+  background-color: var(--button-modal-logout-hover);
+}
+
 .modal-button.cancel {
   background-color: var(--button-modal-cancel);
+}
+
+.modal-button.cancel:hover {
+  background-color: var(--button-modal-cancel-hover);
 }

@@ -23,7 +23,7 @@ export interface IUser {
   }[];
 }
 
-class InitialUser {
+export class InitialUser {
   id = 0;
   nickname = '';
   email = '';
@@ -184,7 +184,7 @@ function EditProfileCard() {
               />
             </div>
             <hr className='edit-profile-role-hr' />
-            <EditProfileRoles userRoles={user.roles} />
+            <EditProfileRoles user={user} />
           </div>
           <hr className='edit-profile-role-hr' />
           <div className='edit-profile-button-save'>

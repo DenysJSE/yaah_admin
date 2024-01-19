@@ -17,7 +17,7 @@ function ModalWindow({handleCansel, handleDoAction, cancelText, doActionText, mo
         <p className='modal-content-text'>{modalWindowText}</p>
         <div className='modal-buttons'>
           <button className='modal-button cancel' onClick={handleCansel}>{cancelText}</button>
-          <button className='modal-button do-action' onClick={() => handleDoAction}>{doActionText}</button>
+          <button className='modal-button do-action' onClick={() => handleDoAction()}>{doActionText}</button>
         </div>
       </div>
     </div>

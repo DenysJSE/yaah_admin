@@ -11,6 +11,11 @@ interface IUpdateNickname {
   newNickname: string
 }
 
+interface IAddRole {
+  userID: number
+  value: string
+}
+
 export default class UserService {
   static async getAllUsers() {
     return api.get('users')
@@ -34,6 +39,10 @@ export default class UserService {
 
   static async deleteUser(id: number) {
     return api.delete(`users/${id}`)
+  }
+
+  static async addRole({ userID, value }: IAddRole) {
+    return api.post('users/role', {userID, value})
   }
 
   static async deleteUserRole(userID: number, roleID: number) {
