@@ -1,5 +1,5 @@
 import './UserCard.css';
-import UserService from '../../../../services/UserService.ts';
+import UserService from 'services/UserService.ts';
 import { useEffect, useState } from 'react';
 import DeleteUserDialog from '../dialogs/DeleteUserDialog.tsx';
 import { Link } from 'react-router-dom';

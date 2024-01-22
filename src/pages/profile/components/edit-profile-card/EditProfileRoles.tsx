@@ -1,12 +1,12 @@
 import './EditProfileCard.css'
-import DeleteIcon from '../../../../assets/images/bin.png';
-import ModalWindow from '../../../../components/ModalWindow.tsx';
+import DeleteIcon from 'assets/images/bin.png';
+import ModalWindow from 'components/ModalWindow.tsx';
 import { useEffect, useState } from 'react';
 import { IRole} from './EditProfileCard.tsx';
-import UserService from '../../../../services/UserService.ts';
-import RolesService from '../../../../services/RolesService.ts';
+import UserService from 'services/UserService.ts';
+import RolesService from 'services/RolesService.ts';
 import AddRoleModal from './add-role-modal/AddRoleModal.tsx';
-import { IUser } from '../../Profile.tsx';
+import { IUser } from 'pages/profile/Profile.tsx';
 
 interface IUserRoles {
   user: IUser

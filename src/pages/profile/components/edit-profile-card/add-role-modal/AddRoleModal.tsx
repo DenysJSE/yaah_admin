@@ -1,8 +1,8 @@
 import './AddRoleModal.css';
-import { IRole } from '../EditProfileCard.tsx';
-import { IUser } from '../../../Profile.tsx';
+import { IRole } from 'pages/profile/components/edit-profile-card/EditProfileCard.tsx';
+import { IUser } from 'pages/profile/Profile.tsx';
 import { useState } from 'react';
-import UserService from '../../../../../services/UserService.ts';
+import UserService from 'services/UserService.ts';
 
 interface IAddRoleModal {
   handleCloseAddRoleModal: () => void;

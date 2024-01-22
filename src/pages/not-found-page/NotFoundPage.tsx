@@ -1,6 +1,6 @@
-import Ghost from '../../assets/images/ghost.png';
+import Ghost from 'assets/images/ghost.png';
 import './NotFoundPage.css'
-import Button from '../../components/button.tsx';
+import Button from 'components/button.tsx';
 
 interface INotFoundPage {
   extraMessage?: string;

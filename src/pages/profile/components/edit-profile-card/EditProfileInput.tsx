@@ -1,6 +1,5 @@
-import HidePassword from '../../../../assets/images/hide.png';
-import ShowPassword from '../../../../assets/images/show.png';
-import * as React from 'react';
+import HidePassword from 'assets/images/hide.png';
+import ShowPassword from 'assets/images/show.png';
 import './EditProfileCard.css';
 
 interface IEditProfileInput {

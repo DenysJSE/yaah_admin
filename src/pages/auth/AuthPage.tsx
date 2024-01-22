@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './Auth.css';
 import { useDispatch } from 'react-redux';
-import { loginUser, registerUser } from '../../store/user/UserActions.ts';
-import { setIsAuthenticated, setUser } from '../../store/user/UserSlice.ts';
+import { loginUser, registerUser } from 'store/user/UserActions.ts';
+import { setIsAuthenticated, setUser } from 'store/user/UserSlice.ts';
 
 function AuthPage() {
   const dispatch = useDispatch();

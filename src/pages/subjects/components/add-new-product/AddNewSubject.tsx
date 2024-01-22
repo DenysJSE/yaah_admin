@@ -1,6 +1,6 @@
 import './AddNewSubject.css'
-import SubjectService from '../../../../services/SubjectService.tsx';
-import Close from '../../../../assets/images/close.png'
+import SubjectService from 'services/SubjectService.tsx';
+import Close from 'assets/images/close.png'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 

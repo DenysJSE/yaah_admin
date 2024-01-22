@@ -1,4 +1,4 @@
-import AuthService from '../../services/AuthService.ts';
+import AuthService from 'services/AuthService.ts';
 
 interface IUserLogin {
   email: string;

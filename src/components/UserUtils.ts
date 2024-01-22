@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import UserService from '../services/UserService.ts';
+import UserService from 'services/UserService.ts';
 
 interface IUser {
   id: number;

@@ -1,5 +1,5 @@
-import UserLogo from '../../assets/images/userlogo.jpg'
-import ProfilePopUp from '../../layouts/profile-popup-menu/ProfilePopUp.tsx';
+import UserLogo from 'assets/images/userlogo.jpg'
+import ProfilePopUp from 'layouts/profile-popup-menu/ProfilePopUp.tsx';
 import { useState } from 'react';
 import './Header.css';
 import { useSidebarContext } from '../../context/HideSidebarContext.tsx';

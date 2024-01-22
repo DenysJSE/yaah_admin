@@ -1,5 +1,5 @@
-import ProfileIcon from '../../assets/images/user.png'
-import LogoutIcon from '../../assets/images/logout.png'
+import ProfileIcon from 'assets/images/user.png'
+import LogoutIcon from 'assets/images/logout.png'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProfilePopUp.css';

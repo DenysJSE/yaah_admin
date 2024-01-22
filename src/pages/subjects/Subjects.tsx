@@ -1,6 +1,6 @@
 import './Subjects.css';
 import { useEffect, useState } from 'react';
-import SubjectService from '../../services/SubjectService.tsx';
+import SubjectService from 'services/SubjectService.tsx';
 import SubjectCard from './components/card/SubjectCard.tsx';
 import { Link } from 'react-router-dom';
 

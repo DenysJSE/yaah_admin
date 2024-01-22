@@ -1,5 +1,5 @@
 import './SubjectCard.css'
-import { ISubject } from '../../Subjects.tsx';
+import { ISubject } from 'pages/subjects/Subjects.tsx';
 
 interface ISubjectCard {
   subject: ISubject

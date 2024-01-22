@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { toast } from 'react-toastify';
-import AuthService from "../../services/AuthService.ts";
-import UserService from '../../services/UserService.ts';
+import AuthService from "services/AuthService.ts";
+import UserService from 'services/UserService.ts';
 
 interface IUser {
   id: number

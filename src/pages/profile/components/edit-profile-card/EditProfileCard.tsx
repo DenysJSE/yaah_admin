@@ -1,12 +1,12 @@
-import CloseButton from '../../../../assets/images/close.png';
-import Button from '../../../../components/button.tsx';
-import UserService from '../../../../services/UserService.ts';
+import CloseButton from 'assets/images/close.png';
+import Button from 'components/button.tsx';
+import UserService from 'services/UserService.ts';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './EditProfileCard.css';
 import EditProfileInput from './EditProfileInput.tsx';
 import { useParams } from 'react-router-dom';
-import NotFoundPage from '../../../not-found-page/NotFoundPage.tsx';
+import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import EditProfileRoles from './EditProfileRoles.tsx';
 
 export interface IUser {
