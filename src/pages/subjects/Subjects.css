@@ -1,0 +1,32 @@
+.subject-page {
+  width: 100%;
+  padding: 0 50px;
+}
+
+.subject-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subject-page-header-button {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--add-new-subject-button);
+  color: var(--app-text-color);
+  cursor: pointer;
+}
+
+.subject-page-header-button:hover {
+  background-color: var(--add-new-subject-button-hover);
+}
+
+.subject-page-subjects-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

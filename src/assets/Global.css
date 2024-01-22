@@ -90,6 +90,11 @@ html {
   --button-modal-logout-hover: #6d6d73;
   --modal-text-color: #ffffff8f;
   --modal-hr-color: #ffffff8f;
+
+  --add-new-subject-button: #1D8A99;
+  --add-new-subject-button-hover: #349aa8;
+  --subject-card-more-info: #627fff;
+  --subject-card-more-info-hover: #7b91ff;
 }
 
 /* App styling */
