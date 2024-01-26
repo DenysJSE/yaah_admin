@@ -2,18 +2,34 @@ import './AddNewSubject.css'
 import SubjectService from 'services/SubjectService.tsx';
 import Close from 'assets/images/close.png'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function AddNewSubject() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate()
 
   const createNewSubject = async () => {
     await SubjectService.createNewSubject({title, description})
   }
 
-  const handleCreateSubject = () => {
-    createNewSubject()
+  const handleCreateSubject = async () => {
+    try {
+      await createNewSubject()
+      toast.success('The subject was created successfully')
+      navigate('/subjects')
+    } catch (e: any) {
+      if (e.response && e.response.data && Array.isArray(e.response.data.message)) {
+        e.response.data.message.forEach((errorMessage: any) => {
+          toast.error(errorMessage);
+        });
+      } else if (e.response && e.response.data && e.response.data.message) {
+        toast.error(e.response.data.message);
+      } else {
+        toast.error('An error occurred');
+      }
+    }
   }
 
   return (

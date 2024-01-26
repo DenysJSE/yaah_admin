@@ -2,6 +2,7 @@ import './Subjects.css';
 import { useEffect, useState } from 'react';
 import SubjectService from 'services/SubjectService.tsx';
 import SubjectCard from './components/card/SubjectCard.tsx';
+import addIcon from 'assets/images/add-for-button.png'
 import { Link } from 'react-router-dom';
 
 export interface ISubject {
@@ -28,7 +29,10 @@ function Subjects() {
       <div className='subject-page-header'>
         <h1 className='subject-page-header-title'>Subjects List</h1>
         <Link to={'/add-new-subject'}>
-          <button className='subject-page-header-button'>Add new subject</button>
+          <button className='subject-page-header-button'>
+            <img src={addIcon} alt={'add-new-subject'} className='subject-page-add-new-icon' />
+            Add new subject
+          </button>
         </Link>
       </div>
       <div className='subject-page-subjects-list'>

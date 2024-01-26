@@ -1,11 +1,15 @@
-import './SubjectCard.css'
+import './SubjectCard.css';
 import { ISubject } from 'pages/subjects/Subjects.tsx';
+import InfoButton from 'assets/images/info-button.png';
+import { useState } from 'react';
 
 interface ISubjectCard {
-  subject: ISubject
+  subject: ISubject;
 }
 
-function SubjectCard({subject}: ISubjectCard) {
+function SubjectCard({ subject }: ISubjectCard) {
+  const [isTooltipVisible, setTooltipVisible] = useState(false);
+
   return (
     <div className='subject-card'>
       <div className='subject-card-content'>
@@ -14,7 +18,18 @@ function SubjectCard({subject}: ISubjectCard) {
           <p className='subject-card-description'>{subject.description}</p>
         </div>
         <div className='subject-card-buttons'>
-          <button className='subject-card-button-more-info'>More info</button>
+          <div
+            className='custom-tooltip-container'
+            onMouseEnter={() => setTooltipVisible(true)}
+            onMouseLeave={() => setTooltipVisible(false)}
+          >
+            <img src={InfoButton} alt='info-button-icon' className='subject-card-info-icon' />
+            {isTooltipVisible && (
+              <div className='custom-tooltip'>
+                <p>More info about the subject</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
@@ -22,4 +37,4 @@ function SubjectCard({subject}: ISubjectCard) {
   );
 }
 
-export default SubjectCard
+export default SubjectCard;

@@ -21,17 +21,29 @@
   width: 80%;
 }
 
-.subject-card-button-more-info {
-  padding: 8px 32px;
-  border: none;
-  border-radius: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--app-text-color);
-  background-color: var(--subject-card-more-info);
-  cursor: pointer;
+.subject-card-info-icon {
+  width: 42px;
 }
 
-.subject-card-button-more-info:hover {
-  background-color: var(--subject-card-more-info-hover);
+.custom-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-tooltip {
+  width: 250px;
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  transform: translateX(20%);
+  background-color: #333;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.custom-tooltip p {
+  margin: 0;
 }
