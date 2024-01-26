@@ -15,7 +15,11 @@ interface IUsers {
   }[];
 }
 
-function Users() {
+interface IUsersComponent {
+  setPath: (path: string) => void
+}
+
+function Users({setPath}: IUsersComponent) {
   const [users, setUsers] = useState<IUsers[] | null>(null);
 
   useEffect(() => {
@@ -37,6 +41,7 @@ function Users() {
         {users?.map(user => (
           <UserCard
             user={user}
+            setPath={setPath}
           />
         ))}
       </div>

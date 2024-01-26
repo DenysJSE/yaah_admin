@@ -16,7 +16,11 @@ export interface IUser {
   }[];
 }
 
-function Profile() {
+interface IProfile {
+  setPath: (path: string) => void
+}
+
+function Profile({setPath}: IProfile) {
   const { user } = useUser();
 
   const formattedDate = new Date(user?.created_at).toLocaleDateString('pl-PL', {
@@ -31,7 +35,7 @@ function Profile() {
         <img src={UserIcon} alt='userIcon' className='profile-page-user-icon' />
         <h1 className='profile-page-user-nickname'>{user?.nickname}</h1>
         <p className='profile-page-member-date'>Member since {formattedDate}</p>
-        <Link to={`/edit-profile/${user.id}`}>
+        <Link to={`/edit-profile/${user.id}`} onClick={() => setPath('profile')}>
           <Button text={'Edit Profile'} />
         </Link>
       </div>

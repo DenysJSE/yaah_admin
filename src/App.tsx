@@ -9,7 +9,7 @@ import Subjects from 'pages/subjects/Subjects.tsx';
 import Users from 'pages/users/Users.tsx';
 import Profile from 'pages/profile/Profile.tsx';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import userStore from 'store/user/userStore.tsx';
 import AuthPage from 'pages/auth/AuthPage.tsx';
 import PrivateRoute from 'components/PrivateRoute.tsx';
@@ -22,6 +22,7 @@ export const Context = createContext({
 
 function App() {
   const { isSidebarHidden } = useSidebarContext();
+  const [path, setPath] = useState('profile')
 
   return (
     <BrowserRouter>
@@ -38,9 +39,9 @@ function App() {
                 <Route path={'/exams'} element={<Exams />} />
                 <Route path={'/subjects'} element={<Subjects />} />
                 <Route path={'/add-new-subject'} element={<AddNewSubject />} />
-                <Route path={'/users'} element={<Users />} />
-                <Route path={'/profile'} element={<Profile />} />
-                <Route path={'/edit-profile/:id'} element={<EditProfileCard />} />
+                <Route path={'/users'} element={<Users setPath={setPath} />} />
+                <Route path={'/profile'} element={<Profile setPath={setPath} />} />
+                <Route path={'/edit-profile/:id'} element={<EditProfileCard path={path} />} />
               </Route>
               <Route path={'/'} element={<AuthPage />} />
               <Route path={'/*'} element={<NotFoundPage />} />

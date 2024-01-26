@@ -17,9 +17,10 @@ interface IUser {
 
 interface IUserData {
   user: IUser
+  setPath: (path: string) => void
 }
 
-function UserCard({ user }: IUserData) {
+function UserCard({ user, setPath }: IUserData) {
   const [isShowDeleteUserDialog, setIsShowDeleteUserDialog] = useState(false);
 
   async function handleDeleteUser() {
@@ -67,7 +68,7 @@ function UserCard({ user }: IUserData) {
           </div>
         </div>
         <div className='user-card-buttons'>
-          <Link to={`/edit-profile/${user.id}`} className='link'>
+          <Link to={`/edit-profile/${user.id}`} className='link' onClick={() => setPath('users')}>
             <button className='user-card-button edit'>Edit</button>
           </Link>
           <button className='user-card-button delete' onClick={handleShowDeleteUserDialog}>Delete</button>

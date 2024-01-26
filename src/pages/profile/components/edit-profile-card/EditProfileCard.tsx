@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './EditProfileCard.css';
 import EditProfileInput from './EditProfileInput.tsx';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import EditProfileRoles from './EditProfileRoles.tsx';
 
@@ -43,7 +43,11 @@ export interface IRole {
   description: string;
 }
 
-function EditProfileCard() {
+interface IEditProfileCard {
+  path: string
+}
+
+function EditProfileCard({path}: IEditProfileCard) {
   const { id } = useParams();
   const [user, setUser] = useState<IUser | InitialUser>(() => new InitialUser);
   const [newNickname, setNewNickname] = useState(user.nickname);
@@ -122,10 +126,6 @@ function EditProfileCard() {
     }
   };
 
-  const handleCloseEditProfileCard = () => {
-    history.back();
-  };
-
   const handleShowPassword = (value: boolean) => {
     setIsShowPassword(value);
   };
@@ -136,12 +136,13 @@ function EditProfileCard() {
         <div className='profile-page-edit-form'>
           <div className='profile-page-edit-form-header'>
             <h1 className='profile-page-edit-form-header-title'>Edit Profile</h1>
-            <img
-              src={CloseButton}
-              alt='closeButton'
-              className='profile-page-edit-form-header-close-button'
-              onClick={handleCloseEditProfileCard}
-            />
+            <Link to={`/${path}`}>
+              <img
+                src={CloseButton}
+                alt='closeButton'
+                className='profile-page-edit-form-header-close-button'
+              />
+            </Link>
           </div>
           <div className='edit-profile-inputs'>
             <div className='edit-profile-inputs-duo'>
