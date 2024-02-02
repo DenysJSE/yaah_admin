@@ -15,6 +15,7 @@ import AuthPage from 'pages/auth/AuthPage.tsx';
 import PrivateRoute from 'components/PrivateRoute.tsx';
 import EditProfileCard from 'pages/profile/components/edit-profile-card/EditProfileCard.tsx';
 import AddNewSubject from 'pages/subjects/components/add-new-product/AddNewSubject.tsx';
+import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -39,6 +40,7 @@ function App() {
                 <Route path={'/exams'} element={<Exams />} />
                 <Route path={'/subjects'} element={<Subjects />} />
                 <Route path={'/add-new-subject'} element={<AddNewSubject />} />
+                <Route path={'/subject-details/:id'} element={<SubjectDetails />} />
                 <Route path={'/users'} element={<Users setPath={setPath} />} />
                 <Route path={'/profile'} element={<Profile setPath={setPath} />} />
                 <Route path={'/edit-profile/:id'} element={<EditProfileCard path={path} />} />

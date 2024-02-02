@@ -1,16 +1,33 @@
 import './Subjects.css';
 import { useEffect, useState } from 'react';
-import SubjectService from 'services/SubjectService.tsx';
+import SubjectService from 'services/SubjectService.ts';
 import SubjectCard from './components/card/SubjectCard.tsx';
 import addIcon from 'assets/images/add-for-button.png'
 import { Link } from 'react-router-dom';
 
+interface IExam {
+  ID: number
+  title: string
+  description: string
+  award: number
+}
+
+interface ILesson {
+  id: number
+  title: string
+  award: number
+  lessonData: string
+}
+
 export interface ISubject {
+  id: number;
   title: string;
   description: string;
-  lessonNumber: number;
+  lessonsNumber: number;
   examsNumber: number;
   courseDuration: number;
+  exams: IExam[];
+  lessons: ILesson[];
 }
 
 function Subjects() {

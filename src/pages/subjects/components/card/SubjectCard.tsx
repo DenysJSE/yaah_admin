@@ -2,6 +2,7 @@ import './SubjectCard.css';
 import { ISubject } from 'pages/subjects/Subjects.tsx';
 import InfoButton from 'assets/images/info-button.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ISubjectCard {
   subject: ISubject;
@@ -23,7 +24,9 @@ function SubjectCard({ subject }: ISubjectCard) {
             onMouseEnter={() => setTooltipVisible(true)}
             onMouseLeave={() => setTooltipVisible(false)}
           >
-            <img src={InfoButton} alt='info-button-icon' className='subject-card-info-icon' />
+            <Link to={`/subject-details/${subject.id}`}>
+              <img src={InfoButton} alt='info-button-icon' className='subject-card-info-icon' />
+            </Link>
             {isTooltipVisible && (
               <div className='custom-tooltip'>
                 <p>More info about the subject</p>
