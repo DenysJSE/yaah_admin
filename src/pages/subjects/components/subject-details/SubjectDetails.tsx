@@ -89,8 +89,8 @@ function SubjectDetails() {
             {subject.examsNumber > 0 ?
               <div className='subject-details-page-content-exams-cards'>
                 {subject.exams.map(exam => (
-                  <div className='subject-details-page-content-exams-card'>
-                    <p key={exam.ID}>{exam.title}</p>
+                  <div className='subject-details-page-content-exams-card' key={exam.ID}>
+                    <p>{exam.title}</p>
                     <img
                       src={moreInfo}
                       alt='details-about-exam'
@@ -109,8 +109,8 @@ function SubjectDetails() {
             {subject.lessonsNumber > 0 ?
               <div className='subject-details-page-content-exams-cards'>
                 {subject.lessons.map(lesson => (
-                  <div className='subject-details-page-content-exams-card'>
-                    <p key={lesson.id}>{lesson.title}</p>
+                  <div className='subject-details-page-content-exams-card' key={lesson.id}>
+                    <p>{lesson.title}</p>
                     <img
                       src={moreInfo}
                       alt='details-about-lesson'

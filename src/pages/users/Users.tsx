@@ -42,6 +42,7 @@ function Users({setPath}: IUsersComponent) {
           <UserCard
             user={user}
             setPath={setPath}
+            key={user.id}
           />
         ))}
       </div>

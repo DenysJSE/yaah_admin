@@ -14,7 +14,7 @@ import userStore from 'store/user/userStore.tsx';
 import AuthPage from 'pages/auth/AuthPage.tsx';
 import PrivateRoute from 'components/PrivateRoute.tsx';
 import EditProfileCard from 'pages/profile/components/edit-profile-card/EditProfileCard.tsx';
-import AddNewSubject from 'pages/subjects/components/add-new-product/AddNewSubject.tsx';
+import AddNewSubject from 'pages/subjects/components/add-new-subject/AddNewSubject.tsx';
 import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
 
 export const Context = createContext({

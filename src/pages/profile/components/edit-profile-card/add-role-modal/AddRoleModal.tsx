@@ -16,8 +16,8 @@ function AddRoleModal({ handleCloseAddRoleModal, roles, user }: IAddRoleModal) {
   const addRoleForUser = async () => {
     const userID = user.id
     const value = clickedRole
-    console.log(value);
     await UserService.addRole({ userID, value })
+    location.reload()
   }
 
   return (
