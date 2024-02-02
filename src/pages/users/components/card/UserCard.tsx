@@ -1,8 +1,10 @@
 import './UserCard.css';
 import UserService from 'services/UserService.ts';
 import { useEffect, useState } from 'react';
-import DeleteUserDialog from '../dialogs/DeleteUserDialog.tsx';
 import { Link } from 'react-router-dom';
+import ModalWindow from 'components/ModalWindow.tsx';
+import editIcon from 'assets/images/edit.png'
+import deleteIcon from 'assets/images/delete.png'
 
 interface IUser {
   id: number;
@@ -16,8 +18,8 @@ interface IUser {
 }
 
 interface IUserData {
-  user: IUser
-  setPath: (path: string) => void
+  user: IUser;
+  setPath: (path: string) => void;
 }
 
 function UserCard({ user, setPath }: IUserData) {
@@ -55,11 +57,11 @@ function UserCard({ user, setPath }: IUserData) {
     <div className='user-card'>
       <div className='user-card-content'>
         <div className='user-card-info'>
-          <p className='user-card-id'>ID: {user.id}</p>
-          <p className='user-card-nickname'>Nickname: {user.nickname}</p>
-          <p className='user-card-email'>Email: {user.email}</p>
+          <p className='user-card-id'><b>ID:</b> {user.id}</p>
+          <p className='user-card-nickname'><b>Nickname:</b> {user.nickname}</p>
+          <p className='user-card-email'><b>Email:</b> {user.email}</p>
           <div className='user-card-role-value'>
-            Roles:
+            <b>Roles:</b>
             {user.roles.map(role => (
               <p key={role.id}>
                 {role.value}
@@ -69,15 +71,24 @@ function UserCard({ user, setPath }: IUserData) {
         </div>
         <div className='user-card-buttons'>
           <Link to={`/edit-profile/${user.id}`} className='link' onClick={() => setPath('users')}>
-            <button className='user-card-button edit'>Edit</button>
+            <button className='user-card-button edit'>
+              <img src={editIcon} alt='edit-user-img' className='user-card-button-icon' />
+              Edit
+            </button>
           </Link>
-          <button className='user-card-button delete' onClick={handleShowDeleteUserDialog}>Delete</button>
+          <button className='user-card-button delete' onClick={handleShowDeleteUserDialog}>
+            <img src={deleteIcon} alt='delete-user-img' className='user-card-button-icon' />
+            Delete
+          </button>
         </div>
         {isShowDeleteUserDialog &&
-          <DeleteUserDialog
-            nickname={user.nickname}
-            handleDeleteUser={handleDeleteUser}
-            handleCanselDelete={handleCanselDelete}
+          <ModalWindow
+            handleCansel={handleCanselDelete}
+            handleDoAction={handleDeleteUser}
+            cancelText={'Cancel'}
+            doActionText={'Delete user'}
+            modalWindowTitle={'You are trying to delete the user'}
+            modalWindowText={'Are you sure you want to delete this user. If you do that the user can not know the reason and will need to register again from start'}
           />
         }
       </div>

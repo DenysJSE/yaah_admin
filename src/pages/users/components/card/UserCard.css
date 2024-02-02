@@ -39,12 +39,16 @@
 }
 
 .user-card-button {
+  text-align: left;
   width: 100%;
-  padding: 12px 32px;
+  padding: 12px 30px 12px 54px;
   border: none;
   border-radius: 15px;
   color: var(--button-user-list-text);
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
 }
 
 .user-card-button.edit {
@@ -53,6 +57,13 @@
 
 .user-card-button.delete {
   background-color: var(--button-user-list-delete);
+}
+
+.user-card-button-icon {
+  width: 18px;
+  position: absolute;
+  top: 10px;
+  left: 24px;
 }
 
 @media (max-width: 850px) {
