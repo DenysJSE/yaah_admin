@@ -1,0 +1,40 @@
+.lessons-page {
+  width: 100%;
+  padding: 0 50px;
+}
+
+.lessons-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lessons-page-header-button {
+  padding: 12px 30px 12px 54px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--add-new-subject-button);
+  color: var(--app-text-color);
+  cursor: pointer;
+  position: relative;
+}
+
+.lessons-page-add-new-icon {
+  width: 28px;
+  position: absolute;
+  top: 6px;
+  left: 24px;
+}
+
+.lessons-page-header-button:hover {
+  background-color: var(--add-new-subject-button-hover);
+}
+
+.lessons-page-lessons-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

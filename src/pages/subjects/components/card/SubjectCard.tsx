@@ -35,7 +35,6 @@ function SubjectCard({ subject }: ISubjectCard) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
