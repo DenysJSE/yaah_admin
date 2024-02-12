@@ -74,4 +74,9 @@
   font-weight: 600;
   color: var(--app-text-color);
   background-color: var(--add-new-subject-button);
+  cursor: pointer;
+}
+
+.add-new-subject-page-button-create:hover {
+  background-color: var(--add-new-subject-button-hover);
 }

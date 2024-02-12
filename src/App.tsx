@@ -16,6 +16,7 @@ import PrivateRoute from 'components/PrivateRoute.tsx';
 import EditProfileCard from 'pages/profile/components/edit-profile-card/EditProfileCard.tsx';
 import AddNewSubject from 'pages/subjects/components/add-new-subject/AddNewSubject.tsx';
 import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
+import AddNewLesson from 'pages/lessons/components/add-new-lesson/AddNewLesson.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -37,6 +38,7 @@ function App() {
             <Routes>
               <Route element={<PrivateRoute />}>
                 <Route path={'/lessons'} element={<Lessons />} />
+                <Route path={'/add-new-lesson'} element={<AddNewLesson />} />
                 <Route path={'/exams'} element={<Exams />} />
                 <Route path={'/subjects'} element={<Subjects />} />
                 <Route path={'/add-new-subject'} element={<AddNewSubject />} />

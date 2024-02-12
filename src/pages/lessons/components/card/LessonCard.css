@@ -38,6 +38,10 @@
   background-color: var(--button-user-list-edit);
 }
 
+.lesson-card-button.edit:hover {
+  background-color: var(--add-new-subject-button-hover);
+}
+
 .lesson-card-button-icon {
   width: 18px;
   position: absolute;

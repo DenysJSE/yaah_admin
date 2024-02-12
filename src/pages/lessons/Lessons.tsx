@@ -2,7 +2,7 @@ import './Lessons.css'
 import { Link } from 'react-router-dom';
 import addIcon from 'assets/images/add-for-button.png';
 import { useEffect, useState } from 'react';
-import LessonsService from 'services/LessonsService.tsx';
+import LessonsService from 'services/LessonsService.ts';
 import LessonCard from 'pages/lessons/components/card/LessonCard.tsx';
 
 export interface ILesson {
