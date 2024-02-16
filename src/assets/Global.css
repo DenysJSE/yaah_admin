@@ -82,7 +82,9 @@ html {
 
   --button-user-list-text: #fffffff;
   --button-user-list-edit: #1D8A99;
+  --button-user-list-edit-hover: #39a4b2;
   --button-user-list-delete: #D7263D;
+  --button-user-list-delete-hover: #d34458;
 
   --button-modal-cancel: #627fff;
   --button-modal-cancel-hover: #7b91ff;

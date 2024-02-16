@@ -1,5 +1,5 @@
 import './SubjectDetails.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import { useEffect, useState } from 'react';
 import SubjectService from 'services/SubjectService.ts';
@@ -7,11 +7,16 @@ import { ISubject } from 'pages/subjects/Subjects.tsx';
 import { quantum } from 'ldrs';
 import closeButton from 'assets/images/close.png';
 import moreInfo from 'assets/images/info-button.png';
+import editIcon from 'assets/images/edit.png';
+import deleteIcon from 'assets/images/delete.png';
+import ModalWindow from 'components/ModalWindow.tsx';
+import { toast } from 'react-toastify';
 
 function SubjectDetails() {
   const { id } = useParams();
   const [subject, setSubject] = useState<ISubject | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isShowDeleteSubjectDialog, setIsShowDeleteSubjectDialog] = useState(false);
   const navigate = useNavigate();
   quantum.register();
 
@@ -61,6 +66,24 @@ function SubjectDetails() {
 
   const linkToLesson = (id: number) => {
     navigate(`/lessons/${id}`);
+  };
+
+  async function handleDeleteSubject(id: number) {
+    try {
+      await SubjectService.deleteSubject(id);
+      navigate('/subjects');
+      toast.success('The subject was deleted successfully');
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  const handleShowDeleteSubjectDialog = () => {
+    setIsShowDeleteSubjectDialog(true);
+  };
+
+  const handleCanselDelete = () => {
+    setIsShowDeleteSubjectDialog(false);
   };
 
   return (
@@ -126,6 +149,28 @@ function SubjectDetails() {
           </div>
         </div>
       </div>
+      <div className='subject-details-page-buttons'>
+        <Link to={`/edit-subject/${id}`} className='link'>
+          <button className='subject-details-page-button edit'>
+            <img src={editIcon} alt='edit-subject-img' className='subject-details-page-button-icon' />
+            Edit
+          </button>
+        </Link>
+        <button className='subject-details-page-button delete' onClick={handleShowDeleteSubjectDialog}>
+          <img src={deleteIcon} alt='delete-subject-img' className='subject-details-page-button-icon' />
+          Delete
+        </button>
+      </div>
+      {isShowDeleteSubjectDialog &&
+        <ModalWindow
+          handleCansel={handleCanselDelete}
+          handleDoAction={() => handleDeleteSubject(parseInt(id))}
+          cancelText={'Cancel'}
+          doActionText={'Delete subject'}
+          modalWindowTitle={'You are trying to delete the subject'}
+          modalWindowText={'Are you sure you want to delete this subject. If you do that a lot of user who love this subject will lose the opportunity to pass some exams or learn new information!'}
+        />
+      }
     </div>
   );
 }

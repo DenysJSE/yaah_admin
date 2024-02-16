@@ -17,6 +17,7 @@ import EditProfileCard from 'pages/profile/components/edit-profile-card/EditProf
 import AddNewSubject from 'pages/subjects/components/add-new-subject/AddNewSubject.tsx';
 import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
 import AddNewLesson from 'pages/lessons/components/add-new-lesson/AddNewLesson.tsx';
+import EditSubject from 'pages/subjects/components/edit-subject/EditSubject.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -24,7 +25,7 @@ export const Context = createContext({
 
 function App() {
   const { isSidebarHidden } = useSidebarContext();
-  const [path, setPath] = useState('profile')
+  const [path, setPath] = useState('profile');
 
   return (
     <BrowserRouter>
@@ -42,6 +43,7 @@ function App() {
                 <Route path={'/exams'} element={<Exams />} />
                 <Route path={'/subjects'} element={<Subjects />} />
                 <Route path={'/add-new-subject'} element={<AddNewSubject />} />
+                <Route path={'/edit-subject/:id'} element={<EditSubject />} />
                 <Route path={'/subject-details/:id'} element={<SubjectDetails />} />
                 <Route path={'/users'} element={<Users setPath={setPath} />} />
                 <Route path={'/profile'} element={<Profile setPath={setPath} />} />

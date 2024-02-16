@@ -110,3 +110,45 @@
   text-align: center;
   margin-top: 16px;
 }
+
+.subject-details-page-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 24px;
+}
+
+.subject-details-page-button {
+  padding: 12px 30px 12px 54px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--button-user-list-text);
+  position: relative;
+}
+
+.subject-details-page-button.edit {
+  background-color: var(--button-user-list-edit);
+}
+
+.subject-details-page-button.edit:hover {
+  background-color: var(--button-user-list-edit-hover);
+}
+
+.subject-details-page-button.delete {
+  background-color: var(--button-user-list-delete);
+}
+
+.subject-details-page-button.delete:hover {
+  background-color: var(--button-user-list-delete-hover);
+}
+
+.subject-details-page-button-icon {
+  width: 18px;
+  position: absolute;
+  top: 10px;
+  left: 24px;
+}
