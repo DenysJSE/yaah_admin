@@ -1,6 +1,7 @@
 import './LessonCard.css'
 import { ILesson } from 'pages/lessons/Lessons.tsx';
-import editIcon from 'assets/images/edit.png';
+import InfoButton from 'assets/images/info-button.png';
+import { Link } from 'react-router-dom';
 
 interface ILessonCard {
   lesson: ILesson
@@ -15,10 +16,9 @@ function LessonCard({lesson}: ILessonCard) {
           <p className='lesson-card-subject-title'>{lesson.subject.title}</p>
         </div>
         <div className='lesson-card-buttons'>
-          <button className='lesson-card-button edit'>
-            <img src={editIcon} alt='edit-lesson-img' className='lesson-card-button-icon' />
-            Edit
-          </button>
+          <Link to={`/lessons/${lesson.id}`}>
+            <img src={InfoButton} alt='info-button-icon' className='subject-card-info-icon' />
+          </Link>
         </div>
       </div>
     </div>

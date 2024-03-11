@@ -65,7 +65,7 @@ function SubjectDetails() {
   };
 
   const linkToLesson = (id: number) => {
-    navigate(`/lessons/${id}`);
+    navigate(`/lessons/${id}`, {state: {source: 'subjectDetails'}});
   };
 
   async function handleDeleteSubject(id: number) {

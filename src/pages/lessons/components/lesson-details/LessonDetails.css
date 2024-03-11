@@ -1,0 +1,94 @@
+.lesson-component-loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--app-background-color);
+  z-index: 9999;
+}
+
+.lesson-details-page-lesson-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 0 100px;
+}
+
+.lesson-details-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  flex: 1;
+  background-color: var(--card-background-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 30px;
+  padding: 32px 48px;
+}
+
+.lesson-details-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--card-border-color);
+}
+
+.lesson-details-page-header-button {
+  position: absolute;
+  right: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.lesson-component-data {
+  margin-top: 24px;
+  line-height: 1.5;
+}
+
+.lesson-details-page-buttons {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.lesson-details-page-button {
+  padding: 12px 30px 12px 54px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--button-user-list-text);
+  position: relative;
+}
+
+.lesson-details-page-button.edit {
+  background-color: var(--button-user-list-edit);
+}
+
+.lesson-details-page-button.edit:hover {
+  background-color: var(--button-user-list-edit-hover);
+}
+
+.lesson-details-page-button.delete {
+  background-color: var(--button-user-list-delete);
+}
+
+.lesson-details-page-button.delete:hover {
+  background-color: var(--button-user-list-delete-hover);
+}
+
+.lesson-component-data p::first-letter {
+  padding-left: 24px;
+}
+
+.lesson-details-page li {
+  margin-left: 52px;
+}

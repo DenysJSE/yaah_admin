@@ -18,6 +18,7 @@ import AddNewSubject from 'pages/subjects/components/add-new-subject/AddNewSubje
 import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
 import AddNewLesson from 'pages/lessons/components/add-new-lesson/AddNewLesson.tsx';
 import EditSubject from 'pages/subjects/components/edit-subject/EditSubject.tsx';
+import LessonDetails from 'pages/lessons/components/lesson-details/LessonDetails.tsx';
 
 export const Context = createContext({
   store: userStore
@@ -25,6 +26,8 @@ export const Context = createContext({
 
 function App() {
   const { isSidebarHidden } = useSidebarContext();
+
+  // TODO: fix this line as I do with lessonDetails
   const [path, setPath] = useState('profile');
 
   return (
@@ -39,6 +42,7 @@ function App() {
             <Routes>
               <Route element={<PrivateRoute />}>
                 <Route path={'/lessons'} element={<Lessons />} />
+                <Route path={'/lessons/:id'} element={<LessonDetails />} />
                 <Route path={'/add-new-lesson'} element={<AddNewLesson />} />
                 <Route path={'/exams'} element={<Exams />} />
                 <Route path={'/subjects'} element={<Subjects />} />
