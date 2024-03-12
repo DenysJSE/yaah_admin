@@ -1,5 +1,5 @@
 import './LessonDetails.css';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import LessonsService from 'services/LessonsService.ts';
@@ -64,11 +64,11 @@ function LessonDetails() {
 
   const handleShowDeleteSubjectDialog = () => {
     setIsShowDeleteSubjectDialog(true);
-  }
+  };
 
   const handleCanselDelete = () => {
     setIsShowDeleteSubjectDialog(false);
-  }
+  };
 
   const handleDeleteSubject = async (id: number) => {
     try {
@@ -79,7 +79,7 @@ function LessonDetails() {
     } finally {
       setIsShowDeleteSubjectDialog(false);
     }
-  }
+  };
 
   return (
     <div className='lesson-details-page-lesson-wrapper'>
@@ -97,10 +97,12 @@ function LessonDetails() {
         <div className='lesson-component-data' dangerouslySetInnerHTML={{ __html: lesson.lessonData }} />
       </div>
       <div className='lesson-details-page-buttons'>
-        <button className='lesson-details-page-button edit'>
-          <img src={editIcon} alt='edit-subject-img' className='subject-details-page-button-icon' />
-          Edit
-        </button>
+        <Link to={`/lessons/edit-lesson/${id}`} className='link'>
+          <button className='lesson-details-page-button edit'>
+            <img src={editIcon} alt='edit-subject-img' className='subject-details-page-button-icon' />
+            Edit
+          </button>
+        </Link>
         <button className='lesson-details-page-button delete' onClick={handleShowDeleteSubjectDialog}>
           <img src={deleteIcon} alt='delete-subject-img' className='subject-details-page-button-icon' />
           Delete

@@ -20,6 +20,10 @@ export default class LessonsService {
     return api.get(`/lessons/get_lesson_by_id_admin/${id}`)
   }
 
+  static async updateLesson(id: number, {title, lessonData, subjectId, award}: ILesson) {
+    return api.put(`/lessons/update_lesson/${id}`, {title, lessonData, subjectId, award})
+  }
+
   static async deleteLesson(id: number) {
     return api.delete(`/lessons/${id}`)
   }
