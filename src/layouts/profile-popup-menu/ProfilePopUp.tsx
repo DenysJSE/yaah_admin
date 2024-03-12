@@ -1,8 +1,10 @@
-import ProfileIcon from 'assets/images/user.png'
-import LogoutIcon from 'assets/images/logout.png'
+import './ProfilePopUp.css';
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './ProfilePopUp.css';
+
+import LogoutIcon from 'assets/images/logout.png'
+import ProfileIcon from 'assets/images/user.png'
 
 interface ProfilePopUp {
   setIsProfileVisible: (isProfileVisible: boolean) => void;

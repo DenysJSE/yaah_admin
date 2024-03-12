@@ -1,5 +1,7 @@
 import './Users.css'
+
 import { useEffect, useState } from 'react';
+
 import UserService from 'services/UserService.ts';
 import UserCard from './components/card/UserCard.tsx';
 

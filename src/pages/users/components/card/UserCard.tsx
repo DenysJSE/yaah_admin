@@ -1,10 +1,12 @@
 import './UserCard.css';
-import UserService from 'services/UserService.ts';
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ModalWindow from 'components/ModalWindow.tsx';
+
 import editIcon from 'assets/images/edit.png'
 import deleteIcon from 'assets/images/delete.png'
+import ModalWindow from 'components/ModalWindow.tsx';
+import UserService from 'services/UserService.ts';
 
 interface IUser {
   id: number;

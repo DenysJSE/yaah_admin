@@ -1,13 +1,15 @@
 import './AddNewLesson.css';
+
 import { Link, useNavigate } from 'react-router-dom';
-import Close from 'assets/images/close.png';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill';
+
+import Close from 'assets/images/close.png';
+import LessonsService from 'services/LessonsService.ts';
 import SubjectService from 'services/SubjectService.ts';
 import { ISubject } from 'pages/subjects/Subjects.tsx';
-import { toast } from 'react-toastify';
-import LessonsService from 'services/LessonsService.ts';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 
 function AddNewLesson() {
   const [subjects, setSubjects] = useState<ISubject[] | null>(null);

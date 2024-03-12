@@ -1,7 +1,9 @@
 import './LessonCard.css'
+
 import { ILesson } from 'pages/lessons/Lessons.tsx';
-import InfoButton from 'assets/images/info-button.png';
 import { Link } from 'react-router-dom';
+
+import InfoButton from 'assets/images/info-button.png';
 
 interface ILessonCard {
   lesson: ILesson

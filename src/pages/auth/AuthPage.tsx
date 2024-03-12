@@ -1,10 +1,13 @@
-import LoginForm from './LoginForm.tsx';
-import RegistrationForm from './RegistrationForm.tsx';
+import './Auth.css';
+import { useDispatch } from 'react-redux';
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './Auth.css';
-import { useDispatch } from 'react-redux';
+
+import LoginForm from './LoginForm.tsx';
+import RegistrationForm from './RegistrationForm.tsx';
+
 import { loginUser, registerUser } from 'store/user/UserActions.ts';
 import { setIsAuthenticated, setUser } from 'store/user/UserSlice.ts';
 

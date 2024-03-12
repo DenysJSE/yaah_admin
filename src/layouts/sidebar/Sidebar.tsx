@@ -1,3 +1,9 @@
+import './Sidebar.css';
+
+import { useEffect } from 'react';
+import { useSidebarContext } from '../../context/HideSidebarContext.tsx';
+import { NavLink } from 'react-router-dom';
+
 import Logo from 'assets/images/Logo.png'
 import Lesson from 'assets/images/lessons.png'
 import LessonActive from 'assets/images/lessons_active.png'
@@ -9,10 +15,6 @@ import User from 'assets/images/user.png'
 import UserActive from 'assets/images/user_active.png'
 import ShowSidebar from 'assets/images/show_menu.png'
 import HideSidebar from 'assets/images/hide_menu.png'
-import { NavLink } from 'react-router-dom';
-import './Sidebar.css';
-import { useEffect } from 'react';
-import { useSidebarContext } from '../../context/HideSidebarContext.tsx';
 
 
 function Sidebar() {

@@ -1,8 +1,10 @@
 import './SubjectCard.css';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
-import InfoButton from 'assets/images/info-button.png';
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import InfoButton from 'assets/images/info-button.png';
+import { ISubject } from 'pages/subjects/Subjects.tsx';
 
 interface ISubjectCard {
   subject: ISubject;

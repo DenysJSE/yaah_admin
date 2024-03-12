@@ -1,12 +1,14 @@
 import '../add-new-subject/AddNewSubject.css'
+
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
+import { toast } from 'react-toastify';
 import { quantum } from 'ldrs';
+
+import Close from 'assets/images/close.png';
+import { ISubject } from 'pages/subjects/Subjects.tsx';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import SubjectService from 'services/SubjectService.ts';
-import Close from 'assets/images/close.png';
-import { toast } from 'react-toastify';
 
 function EditSubject() {
   const { id } = useParams();

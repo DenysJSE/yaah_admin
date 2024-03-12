@@ -1,6 +1,7 @@
+import './EditProfileCard.css';
+
 import HidePassword from 'assets/images/hide.png';
 import ShowPassword from 'assets/images/show.png';
-import './EditProfileCard.css';
 
 interface IEditProfileInput {
   labelHtmlFor: string;

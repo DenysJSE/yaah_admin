@@ -1,13 +1,15 @@
 import './LessonDetails.css';
+
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
-import LessonsService from 'services/LessonsService.ts';
-import { ILesson } from 'pages/lessons/Lessons.tsx';
-import closeButton from 'assets/images/close.png';
+
 import editIcon from 'assets/images/edit.png';
 import deleteIcon from 'assets/images/delete.png';
+import closeButton from 'assets/images/close.png';
 import ModalWindow from 'components/ModalWindow.tsx';
+import LessonsService from 'services/LessonsService.ts';
+import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
+import { ILesson } from 'pages/lessons/Lessons.tsx';
 
 function LessonDetails() {
   const { id } = useParams();

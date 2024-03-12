@@ -1,8 +1,10 @@
-import UserIcon from 'assets/images/userlogo.jpg';
-import Button from 'components/button.tsx';
 import './Profile.css';
+
 import { useUser } from 'components/UserUtils.ts';
 import { Link } from 'react-router-dom';
+
+import Button from 'components/button.tsx';
+import UserIcon from 'assets/images/userlogo.jpg';
 
 export interface IUser {
   id: number;

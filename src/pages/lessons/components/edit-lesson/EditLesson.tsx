@@ -1,14 +1,16 @@
 import '../add-new-lesson/AddNewLesson.css';
+
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { ILesson } from 'pages/lessons/Lessons.tsx';
-import LessonsService from 'services/LessonsService.ts';
-import Close from 'assets/images/close.png';
 import ReactQuill from 'react-quill';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
 import { toast } from 'react-toastify';
+
+import Close from 'assets/images/close.png';
+import LessonsService from 'services/LessonsService.ts';
 import SubjectService from 'services/SubjectService.ts';
+import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
+import { ILesson } from 'pages/lessons/Lessons.tsx';
+import { ISubject } from 'pages/subjects/Subjects.tsx';
 
 
 // TODO: Change this file and AddNewLesson (I duplicated the code)

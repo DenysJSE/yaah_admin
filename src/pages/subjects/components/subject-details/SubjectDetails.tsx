@@ -1,16 +1,18 @@
 import './SubjectDetails.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
+
 import { useEffect, useState } from 'react';
-import SubjectService from 'services/SubjectService.ts';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { quantum } from 'ldrs';
+import { toast } from 'react-toastify';
+
 import closeButton from 'assets/images/close.png';
 import moreInfo from 'assets/images/info-button.png';
 import editIcon from 'assets/images/edit.png';
 import deleteIcon from 'assets/images/delete.png';
 import ModalWindow from 'components/ModalWindow.tsx';
-import { toast } from 'react-toastify';
+import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
+import { ISubject } from 'pages/subjects/Subjects.tsx';
+import SubjectService from 'services/SubjectService.ts';
 
 function SubjectDetails() {
   const { id } = useParams();

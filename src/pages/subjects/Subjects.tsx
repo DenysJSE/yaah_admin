@@ -1,9 +1,11 @@
 import './Subjects.css';
+
 import { useEffect, useState } from 'react';
-import SubjectService from 'services/SubjectService.ts';
+import { Link } from 'react-router-dom';
+
 import SubjectCard from './components/card/SubjectCard.tsx';
 import addIcon from 'assets/images/add-for-button.png'
-import { Link } from 'react-router-dom';
+import SubjectService from 'services/SubjectService.ts';
 
 interface IExam {
   ID: number
