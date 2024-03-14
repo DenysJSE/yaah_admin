@@ -9,8 +9,8 @@ import Close from 'assets/images/close.png';
 import LessonsService from 'services/LessonsService.ts';
 import SubjectService from 'services/SubjectService.ts';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
-import { ILesson } from 'pages/lessons/Lessons.tsx';
 import { ISubject } from 'pages/subjects/Subjects.tsx';
+import { ILesson } from 'types/LessonTypes.ts';
 
 
 // TODO: Change this file and AddNewLesson (I duplicated the code)
@@ -18,12 +18,14 @@ function EditLesson() {
   const {id } = useParams();
   const [loading, setLoading] = useState(true);
   const [lesson, setLesson] = useState<ILesson | null>(null);
-  const [lessonTitle, setLessonTitle] = useState(lesson?.title || '');
+
+  //similar with add new lesson
+  const [filteredData, setFilteredData] = useState<ISubject[] | null>(null);
   const [subjects, setSubjects] = useState<ISubject[] | null>(null);
   const [subjectId, setSubjectId] = useState<number>(lesson?.subject.id || 0);
+  const [lessonTitle, setLessonTitle] = useState(lesson?.title || '');
   const [lessonData, setLessonData] = useState(lesson?.lessonData || '')
   const [searchQuery, setSearchQuery] = useState(lesson?.subject.title || '');
-  const [filteredData, setFilteredData] = useState<ISubject[] | null>(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate()
@@ -55,6 +57,7 @@ function EditLesson() {
     }
   }, [lesson]);
 
+  //similar with add new lesson
   useEffect(() => {
     const fetchSubjectTitles = async () => {
       try {
@@ -73,6 +76,7 @@ function EditLesson() {
     };
   }, []);
 
+  //similar with add new lesson
   useEffect(() => {
     if (subjects) {
       const filteredSubjectTitles = subjects.filter((subject) =>
@@ -82,6 +86,7 @@ function EditLesson() {
     }
   }, [subjects, searchQuery]);
 
+  //similar with add new lesson
   const handleClickOutside = (event: MouseEvent) => {
     if (searchInputRef.current && !searchInputRef.current.contains(event.target as Node)) {
       setIsSearchFocused(false);
@@ -106,6 +111,7 @@ function EditLesson() {
     return <NotFoundPage extraMessage={'The lesson with such id do not exist'} />;
   }
 
+  //similar with add new lesson
   const handleSubjectClick = (clickedSubject: ISubject) => {
     setSearchQuery(clickedSubject.title);
     setSubjectId(clickedSubject.id);

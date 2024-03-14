@@ -9,7 +9,8 @@ import closeButton from 'assets/images/close.png';
 import ModalWindow from 'components/ModalWindow.tsx';
 import LessonsService from 'services/LessonsService.ts';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
-import { ILesson } from 'pages/lessons/Lessons.tsx';
+import { ILesson } from 'types/LessonTypes.ts';
+import LoadingComponent from 'components/loadingComponent.tsx';
 
 function LessonDetails() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function LessonDetails() {
   const source = location.state?.source || 'lessons';
   const [lesson, setLesson] = useState<ILesson | null>(null);
   const [loading, setLoading] = useState(true);
-  const [isShowDeleteSubjectDialog, setIsShowDeleteSubjectDialog] = useState(false);
+  const [isShowDeleteLessonDialog, setIsShowDeleteLessonDialog] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,13 +44,7 @@ function LessonDetails() {
   }
 
   if (loading) {
-    return <div className='lesson-component-loading'>
-      <l-quantum
-        size='55'
-        speed='2'
-        color='#B9C7FC'
-      />
-    </div>;
+     return <LoadingComponent />
   }
 
   if (!lesson) {
@@ -64,22 +59,22 @@ function LessonDetails() {
     }
   };
 
-  const handleShowDeleteSubjectDialog = () => {
-    setIsShowDeleteSubjectDialog(true);
+  const handleShowDeleteLessonDialog = () => {
+    setIsShowDeleteLessonDialog(true);
   };
 
   const handleCanselDelete = () => {
-    setIsShowDeleteSubjectDialog(false);
+    setIsShowDeleteLessonDialog(false);
   };
 
-  const handleDeleteSubject = async (id: number) => {
+  const handleDeleteLesson = async (id: number) => {
     try {
       await LessonsService.deleteLesson(id);
       navigate('/lessons');
     } catch (e) {
       console.log(e);
     } finally {
-      setIsShowDeleteSubjectDialog(false);
+      setIsShowDeleteLessonDialog(false);
     }
   };
 
@@ -105,19 +100,19 @@ function LessonDetails() {
             Edit
           </button>
         </Link>
-        <button className='lesson-details-page-button delete' onClick={handleShowDeleteSubjectDialog}>
+        <button className='lesson-details-page-button delete' onClick={handleShowDeleteLessonDialog}>
           <img src={deleteIcon} alt='delete-subject-img' className='subject-details-page-button-icon' />
           Delete
         </button>
       </div>
-      {isShowDeleteSubjectDialog &&
+      {isShowDeleteLessonDialog &&
         <ModalWindow
           handleCansel={handleCanselDelete}
-          handleDoAction={() => handleDeleteSubject(parseInt(id))}
+          handleDoAction={() => handleDeleteLesson(parseInt(id))}
           cancelText={'Cancel'}
-          doActionText={'Delete subject'}
-          modalWindowTitle={'You are trying to delete the subject'}
-          modalWindowText={'Are you sure you want to delete this subject. If you do that a lot of user who love this subject will lose the opportunity to pass some exams or learn new information!'}
+          doActionText={'Delete lesson'}
+          modalWindowTitle={'You are trying to delete the lesson'}
+          modalWindowText={'Are you sure you want to delete this lesson. If you do that a lot of user who love this lesson will lose the opportunity to pass it!'}
         />
       }
     </div>

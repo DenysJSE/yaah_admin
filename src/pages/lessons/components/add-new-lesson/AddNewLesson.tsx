@@ -12,12 +12,12 @@ import SubjectService from 'services/SubjectService.ts';
 import { ISubject } from 'pages/subjects/Subjects.tsx';
 
 function AddNewLesson() {
+  const [filteredData, setFilteredData] = useState<ISubject[] | null>(null);
   const [subjects, setSubjects] = useState<ISubject[] | null>(null);
-  const [lessonTitle, setLessonTitle] = useState('');
   const [subjectId, setSubjectId] = useState<number>(0);
+  const [lessonTitle, setLessonTitle] = useState('');
   const [lessonData, setLessonData] = useState('')
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredData, setFilteredData] = useState<ISubject[] | null>(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate()

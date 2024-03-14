@@ -21,6 +21,15 @@
   width: 80%;
 }
 
+.lesson-card-info-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.lesson-card-info-subject-title {
+  font-size: 18px;
+}
+
 .lesson-card-button {
   text-align: left;
   width: 100%;
@@ -34,17 +43,6 @@
   position: relative;
 }
 
-.lesson-card-button.edit {
-  background-color: var(--button-user-list-edit);
-}
-
-.lesson-card-button.edit:hover {
-  background-color: var(--add-new-subject-button-hover);
-}
-
-.lesson-card-button-icon {
-  width: 18px;
-  position: absolute;
-  top: 10px;
-  left: 24px;
+.lesson-card-info-icon {
+  width: 42px;
 }
