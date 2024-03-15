@@ -1,27 +1,26 @@
-.add-new-lesson-page {
+.lesson-creation-page {
   padding: 0 200px;
   width: 100%;
 }
 
-.add-new-lesson-page-header {
+.lesson-creation-page-header {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.add-new-lesson-page-header-title {
+.lesson-creation-page-header-title {
   margin: auto;
 }
 
-.add-new-lesson-page-header-close-button {
+.lesson-creation-page-header-close-button {
   width: 20px;
   position: absolute;
   right: 0;
   top: 5px;
 }
 
-.add-new-lesson-page-content {
-
+.lesson-creation-page-creation-form {
   margin-top: 48px;
   display: flex;
   flex-direction: column;
@@ -30,24 +29,24 @@
   gap: 24px;
 }
 
-.add-new-lesson-page-title-subject-inputs {
+.lesson-creation-page-title-and-subject-section {
   display: flex;
   justify-content: left;
   gap: 72px;
 }
 
-.add-new-lesson-page-input-label {
+.lesson-creation-page-title-and-subject-input-label {
   font-size: 18px;
 }
 
-.add-new-lesson-page-input {
+.lesson-creation-page-title-and-subject-input {
   display: flex;
   flex-direction: column;
   gap: 8px;
   position: relative;
 }
 
-.add-new-lesson-page-input-field {
+.lesson-creation-page-title-and-subject-input-field {
   height: 40px;
   width: 400px;
   border-radius: 10px;
@@ -59,18 +58,18 @@
   outline: none;
 }
 
-.add-new-lesson-page-input-field:focus {
+.lesson-creation-page-title-and-subject-input-field:focus {
   padding: 0 18px;
   border: 2px solid var(--exam-card-option-active);
 }
 
-.add-new-lesson-page-input-field.subject {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
+.lesson-creation-page-input-field.subject {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+ }
 
-.add-new-lesson-title-subject-list-wrapper {
+.lesson-creation-page-subject-titles-list-wrapper {
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid var(--card-border-color);
@@ -80,7 +79,7 @@
   z-index: 9999;
 }
 
-.add-new-lesson-title-subject-list {
+.lesson-creation-page-subject-titles-list {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -91,26 +90,26 @@
   overflow-y: auto;
 }
 
-.add-new-lesson-title-subject-list-item {
+.lesson-creation-page-subject-title {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.add-new-lesson-title-subject-list-item:hover {
+.lesson-creation-page-subject-title:hover {
   background-color: var(--card-border-color);
 }
 
-.add-new-lesson-page-lesson-data-editor {
+.lesson-creation-page-lesson-data-editor {
   width: 100%;
 }
 
-.add-new-lesson-page-lesson-editor {
+.lesson-creation-page-lesson-editor {
   height: 300px;
   margin: 20px 0;
 }
 
-.add-new-lesson-page-lesson-editor-field {
+.lesson-creation-page-lesson-editor-field {
   height: 100%;
 }
 
@@ -120,9 +119,7 @@
   color: #000;
 }
 
-
-
-.add-new-lesson-page-button-create {
+.lesson-creation-page-button-create {
   margin-top: 30px;
   padding: 12px 48px;
   border: none;
@@ -134,6 +131,6 @@
   cursor: pointer;
 }
 
-.add-new-lesson-page-button-create:hover {
+.lesson-creation-page-button-create:hover {
   background-color: var(--add-new-subject-button-hover);
 }

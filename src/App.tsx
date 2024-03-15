@@ -11,8 +11,8 @@ import { useSidebarContext } from './context/HideSidebarContext.tsx';
 import PrivateRoute from 'components/PrivateRoute.tsx';
 
 import Lessons from 'pages/lessons/Lessons.tsx';
-import EditLesson from 'pages/lessons/components/edit-lesson/EditLesson.tsx';
-import AddNewLesson from 'pages/lessons/components/add-new-lesson/AddNewLesson.tsx';
+import EditLesson from 'pages/lessons/components/lesson-creation/EditLesson.tsx';
+import AddNewLesson from 'pages/lessons/components/lesson-creation/AddNewLesson.tsx';
 import LessonDetails from 'pages/lessons/components/lesson-details/LessonDetails.tsx';
 
 import Exams from 'pages/exams/Exams.tsx';
