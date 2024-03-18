@@ -4,11 +4,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import InfoButton from 'assets/images/info-button.png';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
+import { ISubjectCard } from 'types/SubjectTypes.ts';
 
-interface ISubjectCard {
-  subject: ISubject;
-}
 
 function SubjectCard({ subject }: ISubjectCard) {
   const [isTooltipVisible, setTooltipVisible] = useState(false);

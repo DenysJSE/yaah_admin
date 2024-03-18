@@ -1,14 +1,13 @@
-import '../add-new-subject/AddNewSubject.css'
-
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { quantum } from 'ldrs';
 
-import Close from 'assets/images/close.png';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
 import SubjectService from 'services/SubjectService.ts';
+import { ISubject } from 'types/SubjectTypes.ts';
+import LoadingComponent from 'components/loadingComponent.tsx';
+import SubjectCreation from 'pages/subjects/components/subject-creation/SubjectCreation.tsx';
 
 function EditSubject() {
   const { id } = useParams();
@@ -47,13 +46,7 @@ function EditSubject() {
   }
 
   if (loading) {
-    return <div className='lesson-component-loading'>
-      <l-quantum
-        size='55'
-        speed='2'
-        color='#B9C7FC'
-      />
-    </div>;
+    return <LoadingComponent />
   }
 
   if (!subject) {
@@ -83,36 +76,14 @@ function EditSubject() {
   }
 
   return (
-    <div className='add-new-subject-page'>
-      <div className='add-new-subject-page-header'>
-        <h1 className='add-new-subject-page-header-title'>Update Subject</h1>
-        <Link to={`/subject-details/${parseInt(id)}`} className='link'>
-          <img src={Close} alt='close-button-icon' className='add-new-subject-page-header-close-button' />
-        </Link>
-      </div>
-      <div className='add-new-subject-page-content'>
-        <div className='add-new-subject-page-input'>
-          <label htmlFor='add-new-subject-title' className='add-new-subject-page-input-label'>Title</label>
-          <input
-            id='add-new-subject-title'
-            type='text'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className='add-new-subject-page-input-field'
-          />
-        </div>
-        <div className='add-new-subject-page-input'>
-          <label htmlFor='add-new-subject-description' className='add-new-subject-page-input-label'>Description</label>
-          <textarea
-            id='add-new-subject-description'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className='add-new-subject-page-input-field textarea'
-          />
-        </div>
-        <button onClick={handleUpdateSubject} className='add-new-subject-page-button-create'>Update</button>
-      </div>
-    </div>
+    <SubjectCreation
+      title={title}
+      setTitle={setTitle}
+      description={description}
+      setDescription={setDescription}
+      handleActionOnSubject={handleUpdateSubject}
+      buttonTitle={'Update'}
+    />
   );
 }
 

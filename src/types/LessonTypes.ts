@@ -21,3 +21,14 @@ export interface ILessons {
 export interface ILessonCard {
   lesson: ILesson
 }
+
+export interface ILessonCreation {
+  lessonTitle: string
+  setLessonTitle: (value: string) => void
+  lessonData: string
+  setLessonData: (value: string) => void
+  setSubjectId: (value: number) => void
+  searchQueryOption?: string
+  handleActionOnLesson: () => void
+  buttonTitle?: string
+}

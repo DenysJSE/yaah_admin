@@ -1,26 +1,26 @@
-.add-new-subject-page {
+.subject-creation-page {
   padding: 0 50px;
   width: 100%;
 }
 
-.add-new-subject-page-header {
+.subject-creation-page-header {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.add-new-subject-page-header-title {
+.subject-creation-page-header-title {
   margin: auto;
 }
 
-.add-new-subject-page-header-close-button {
+.subject-creation-page-header-close-button {
   width: 20px;
   position: absolute;
   right: 100px;
   top: 5px;
 }
 
-.add-new-subject-page-content {
+.subject-creation-page-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,17 +29,17 @@
   min-height: 100%;
 }
 
-.add-new-subject-page-input-label {
+.subject-creation-page-input-label {
   font-size: 18px;
 }
 
-.add-new-subject-page-input {
+.subject-creation-page-input {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.add-new-subject-page-input-field {
+.subject-creation-page-input-field {
   height: 40px;
   width: 400px;
   border-radius: 10px;
@@ -51,22 +51,22 @@
   outline: none;
 }
 
-.add-new-subject-page-input-field:focus {
+.subject-creation-page-input-field:focus {
   padding: 0 18px;
   border: 2px solid var(--exam-card-option-active);
 }
 
-.add-new-subject-page-input-field.textarea {
+.subject-creation-page-input-field.textarea {
   min-height: 150px;
   padding: 20px;
   resize: vertical;
 }
 
-.add-new-subject-page-input-field.textarea:focus {
+.subject-creation-page-input-field.textarea:focus {
   padding: 18px;
 }
 
-.add-new-subject-page-button-create {
+.subject-creation-page-button-create {
   padding: 12px 48px;
   border: none;
   border-radius: 20px;
@@ -77,6 +77,6 @@
   cursor: pointer;
 }
 
-.add-new-subject-page-button-create:hover {
+.subject-creation-page-button-create:hover {
   background-color: var(--add-new-subject-button-hover);
 }

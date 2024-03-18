@@ -6,31 +6,7 @@ import { Link } from 'react-router-dom';
 import SubjectCard from './components/card/SubjectCard.tsx';
 import addIcon from 'assets/images/add-for-button.png'
 import SubjectService from 'services/SubjectService.ts';
-
-interface IExam {
-  ID: number
-  title: string
-  description: string
-  award: number
-}
-
-interface ILesson {
-  id: number
-  title: string
-  award: number
-  lessonData: string
-}
-
-export interface ISubject {
-  id: number;
-  title: string;
-  description: string;
-  lessonsNumber: number;
-  examsNumber: number;
-  courseDuration: number;
-  exams: IExam[];
-  lessons: ILesson[];
-}
+import { ISubject } from 'types/SubjectTypes.ts';
 
 function Subjects() {
   const [subjects, setSubjects] = useState<ISubject[] | null>(null);

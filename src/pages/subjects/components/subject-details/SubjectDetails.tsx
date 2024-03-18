@@ -11,8 +11,9 @@ import editIcon from 'assets/images/edit.png';
 import deleteIcon from 'assets/images/delete.png';
 import ModalWindow from 'components/ModalWindow.tsx';
 import NotFoundPage from 'pages/not-found-page/NotFoundPage.tsx';
-import { ISubject } from 'pages/subjects/Subjects.tsx';
 import SubjectService from 'services/SubjectService.ts';
+import { ISubject } from 'types/SubjectTypes.ts';
+import LoadingComponent from 'components/loadingComponent.tsx';
 
 function SubjectDetails() {
   const { id } = useParams();
@@ -45,13 +46,7 @@ function SubjectDetails() {
   }
 
   if (loading) {
-    return <div className='lesson-component-loading'>
-      <l-quantum
-        size='55'
-        speed='2'
-        color='#B9C7FC'
-      />
-    </div>;
+    return <LoadingComponent />;
   }
 
   if (!subject) {
@@ -146,7 +141,7 @@ function SubjectDetails() {
                 ))}
               </div>
               :
-              <p className='subject-details-page-content-exams-no-exams-message'>This subject do not have exams yet</p>
+              <p className='subject-details-page-content-exams-no-exams-message'>This subject do not have lessons yet</p>
             }
           </div>
         </div>

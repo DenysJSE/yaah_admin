@@ -1,5 +1,5 @@
 import './NotFoundPage.css'
-import NotFound from 'assets/images/notFound.svg';
+import NotFound from 'assets/images/notFound.png';
 import Button from 'components/button.tsx';
 
 interface INotFoundPage {

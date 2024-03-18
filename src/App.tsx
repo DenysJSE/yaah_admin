@@ -18,8 +18,8 @@ import LessonDetails from 'pages/lessons/components/lesson-details/LessonDetails
 import Exams from 'pages/exams/Exams.tsx';
 
 import Subjects from 'pages/subjects/Subjects.tsx';
-import AddNewSubject from 'pages/subjects/components/add-new-subject/AddNewSubject.tsx';
-import EditSubject from 'pages/subjects/components/edit-subject/EditSubject.tsx';
+import AddNewSubject from 'pages/subjects/components/subject-creation/AddNewSubject.tsx';
+import EditSubject from 'pages/subjects/components/subject-creation/EditSubject.tsx';
 import SubjectDetails from 'pages/subjects/components/subject-details/SubjectDetails.tsx';
 
 import AuthPage from 'pages/auth/AuthPage.tsx';

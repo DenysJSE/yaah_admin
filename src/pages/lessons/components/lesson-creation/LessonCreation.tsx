@@ -4,20 +4,10 @@ import { Link } from 'react-router-dom';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 
-import { ISubject } from 'pages/subjects/Subjects.tsx';
 import Close from 'assets/images/close.png';
 import SubjectService from 'services/SubjectService.ts';
-
-interface ILessonCreation {
-  lessonTitle: string
-  setLessonTitle: (value: string) => void
-  lessonData: string
-  setLessonData: (value: string) => void
-  setSubjectId: (value: number) => void
-  searchQueryOption?: string
-  handleActionOnLesson: () => void
-  buttonTitle?: string
-}
+import { ISubject } from 'types/SubjectTypes.ts';
+import { ILessonCreation } from 'types/LessonTypes.ts';
 
 function LessonCreation(
   {
